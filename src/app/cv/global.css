@@ -1,0 +1,66 @@
+@page {
+  size: A4;
+  margin: 0.4in;
+}
+
+@media print {
+  .cv {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+  }
+
+  .cv header,
+  .cv footer,
+  .cv aside {
+    display: none;
+  }
+
+  .cv section {
+    break-inside: avoid;
+    break-after: auto;
+    position: relative;
+  }
+
+  .cv h2 {
+    font-size: 2rem;
+  }
+}
+
+.cv article {
+  position: relative;
+}
+
+.cv section {
+  page-break-inside: auto;
+}
+
+.cv h1 {
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 0, 0, 0.8);
+  text-decoration-thickness: 0.125em;
+  text-underline-offset: 2px;
+  font-size: var(--font-size-lg) !important;
+}
+
+.cv h2 {
+  color: rgba(0, 0, 0, 0.8);
+  margin: 0.5em 0 0.5em 0;
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 0, 0, 0.8);
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.1em;
+}
+
+.cv p {
+  line-height: 1.2;
+}
+
+.cv img {
+  border-radius: 0.5em;
+}
+
+.cv ul {
+  list-style: circle;
+  padding-left: 2em;
+}
