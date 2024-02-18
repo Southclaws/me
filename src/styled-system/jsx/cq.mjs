@@ -1,13 +1,13 @@
 import { createElement, forwardRef } from 'react'
 import { mergeCss } from '../css/css.mjs';
 import { splitProps } from '../helpers.mjs';
-import { getStackStyle } from '../patterns/stack.mjs';
+import { getCqStyle } from '../patterns/cq.mjs';
 import { styled } from './factory.mjs';
 
-export const Stack = /* @__PURE__ */ forwardRef(function Stack(props, ref) {
-  const [patternProps, restProps] = splitProps(props, ["align","justify","direction","gap"])
+export const Cq = /* @__PURE__ */ forwardRef(function Cq(props, ref) {
+  const [patternProps, restProps] = splitProps(props, ["name","type"])
 
-const styleProps = getStackStyle(patternProps)
+const styleProps = getCqStyle(patternProps)
 const mergedProps = { ref, ...styleProps, ...restProps }
 
 return createElement(styled.div, mergedProps)

@@ -68,8 +68,8 @@ export default defineConfig({
           fg: {
             DEFAULT: {
               value: {
-                base: "{colors.offblack}",
-                _osDark: "{colors.offwhite}",
+                base: "colors.offblack",
+                _osDark: "colors.offwhite",
               },
             },
             muted: {
@@ -88,8 +88,8 @@ export default defineConfig({
           bg: {
             DEFAULT: {
               value: {
-                base: "{colors.offwhite}",
-                _osDark: "{colors.offblack}",
+                base: "colors.offwhite",
+                _osDark: "colors.offblack",
               },
             },
             muted: {
