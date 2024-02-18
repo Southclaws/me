@@ -22,8 +22,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Barney",
-  description: "Multidisciplinary maker",
+  title: {
+    template: "%s | Barney",
+    default: "Barney",
+  },
+  description: "Multidisciplinary maker, designer and leader.",
   metadataBase: new URL("https://barney.is"),
 };
 

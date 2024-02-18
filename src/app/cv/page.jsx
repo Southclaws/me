@@ -1,10 +1,16 @@
 import Github from "@/icons/Github";
 import Mail from "@/icons/Mail";
 import Web from "@/icons/Web";
-import { HStack, styled } from "@/styled-system/jsx";
+import { HStack, VStack, styled } from "@/styled-system/jsx";
 import Image from "next/image";
 
 import "./global.css";
+
+export const metadata = {
+  title: "My curriculum vitae",
+  description:
+    "As a passionate and enthusiastic lover of all things electronic, mechanical and visual; I have always shown deep interest how we experience technology. I'm a multidisciplinary leader with a truly full-stack experience all the way from the cloud configuration to the customer experience, with everything in between.",
+};
 
 const ExperienceItem = ({
   title,
@@ -210,10 +216,10 @@ const Personal = () => (
       co-founded (and failed) a couple of startups.
     </p>
     <p>
-      Outside of engineering work I&apos;ve worked as a freelance brand designer
-      for indie businesses and startups, as well as videographer for live
-      events. My free time is usually filled with photography, videography,
-      travelling and music.
+      Outside of engineering and design work I&apos;m an avid gym rat and
+      fitness nerd. I also help organise the London Gophers meetup group, the
+      largest Golang meetup in the UK. My spare time is filled with travelling
+      and my life goal is to visit every country on earth.
     </p>
   </section>
 );
@@ -229,11 +235,20 @@ const Education = () => (
   </section>
 );
 
-const Link = ({ icon, text }) => (
-  <HStack>
+const Link = ({ icon, text, href }) => (
+  <styled.a
+    cursor="pointer"
+    href={href}
+    display="flex"
+    alignItems="center"
+    gap="1"
+    _hover={{
+      textDecoration: "underline",
+    }}
+  >
     <span>{icon}</span>
     <span>{text}</span>
-  </HStack>
+  </styled.a>
 );
 
 export default function Page() {
@@ -256,7 +271,7 @@ export default function Page() {
         </styled.aside>
 
         <HStack justify="space-between">
-          <div>
+          <VStack alignItems="start" gap="1">
             <styled.h1 lineHeight="none">Barnaby Keene</styled.h1>
             <div>
               <Link icon={<Web height="1em" />} text="www.southcla.ws" />
@@ -264,9 +279,9 @@ export default function Page() {
                 icon={<Github height="1em" />}
                 text="github.com/southclaws"
               />
-              <Link icon={<Mail height="1em" />} text="hello@southcla.ws" />
+              <Link icon={<Mail height="1em" />} text="barney@hey.com" />
             </div>
-          </div>
+          </VStack>
 
           <Image
             src="/me.jpeg"
@@ -276,7 +291,7 @@ export default function Page() {
           />
         </HStack>
 
-        <styled.hr my="8" color="fg.subtle" />
+        <styled.hr my="4" color="fg.subtle" />
 
         <p>
           As a passionate and enthusiastic lover of all things electronic,
