@@ -36,7 +36,7 @@ const Experience = () => (
     <h2>Experience</h2>
 
     <ExperienceItem
-      title="Senior Engineer -> Senior Product Engineer"
+      title="Founding Engineer"
       company="Odin"
       location="London"
       dates="Nov 2021 - Present"

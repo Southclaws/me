@@ -1,15 +1,7 @@
-import localFont from "next/font/local";
+import { ContentPageProps } from "@/content/content";
+import { getFonts } from "@/content/rsc-fonts";
+import { token } from "@/styled-system/tokens";
 import { ImageResponse } from "next/og";
-import styles from "../../panda.config";
-import { usePathname } from "next/navigation";
-
-const offblack =
-  (styles.theme?.extend?.tokens?.colors?.offblack as any).DEFAULT?.value ??
-  "black";
-
-const offwhite =
-  (styles.theme?.extend?.tokens?.colors?.offwhite as any).DEFAULT?.value ??
-  "white";
 
 export const runtime = "edge";
 export const alt = "Barney";
@@ -19,20 +11,14 @@ export const size = {
 };
 export const contentType = "image/png";
 
-export default async function Image() {
-  const orbiterBold = fetch(
-    new URL("./TASAOrbiterDisplay-Bold.otf", import.meta.url)
-  ).then((res) => res.arrayBuffer());
-
-  const orbiterMedium = fetch(
-    new URL("./TASAOrbiterDisplay-Medium.otf", import.meta.url)
-  ).then((res) => res.arrayBuffer());
+export default async function Image(props: ContentPageProps) {
+  const { orbiterBold, orbiterMedium } = await getFonts();
 
   return new ImageResponse(
     (
       <div
         style={{
-          background: offblack,
+          background: token("colors.offblack"),
           width: "100%",
           height: "100%",
           display: "flex",
@@ -40,7 +26,7 @@ export default async function Image() {
           padding: "80px",
           alignItems: "flex-start",
           justifyContent: "space-between",
-          color: offwhite,
+          color: token("colors.offwhite"),
           fontFamily: "TASA Orbiter",
         }}
       >
@@ -52,7 +38,7 @@ export default async function Image() {
         >
           <h1 style={{ fontSize: "120", fontWeight: 800 }}>barney</h1>
           <p style={{ fontSize: "80", fontWeight: 400 }}>
-            multidisciplinary maker
+            what am i {props.params.verb}?
           </p>
         </div>
 
