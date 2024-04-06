@@ -1691,6 +1691,10 @@ const tokens = {
     "value": "hsla(40, 100%, 99%, 1)",
     "variable": "var(--colors-offwhite)"
   },
+  "colors.offwhite.darker": {
+    "value": "hsla(40, 12%, 88%, 1)",
+    "variable": "var(--colors-offwhite-darker)"
+  },
   "colors.offwhite.muted": {
     "value": "hsla(40, 100%, 99%, 0.66)",
     "variable": "var(--colors-offwhite-muted)"
@@ -1703,6 +1707,10 @@ const tokens = {
     "value": "hsla(222, 18%, 25%, 1)",
     "variable": "var(--colors-offblack)"
   },
+  "colors.offblack.lighter": {
+    "value": "hsla(222, 18%, 32%, 1)",
+    "variable": "var(--colors-offblack-lighter)"
+  },
   "colors.offblack.muted": {
     "value": "hsla(222, 18%, 25%, 0.66)",
     "variable": "var(--colors-offblack-muted)"
@@ -1712,43 +1720,43 @@ const tokens = {
     "variable": "var(--colors-offblack-subtle)"
   },
   "colors.accent.50": {
-    "value": "hsl(28deg 50% 95%)",
+    "value": "hsl(254.15999999999997 23% 2%)",
     "variable": "var(--colors-accent-50)"
   },
   "colors.accent.100": {
-    "value": "hsl(64deg 31% 12%)",
+    "value": "hsl(250.55999999999995 23.312757201646093% 4.8947542022763955%)",
     "variable": "var(--colors-accent-100)"
   },
   "colors.accent.200": {
-    "value": "hsl(60deg 32% 15%)",
+    "value": "hsl(246.96000000000004 25.502057613168727% 13.229866730289055%)",
     "variable": "var(--colors-accent-200)"
   },
   "colors.accent.300": {
-    "value": "hsl(56deg 32% 20%)",
+    "value": "hsl(243.36 31.444444444444446% 25.999999999999996%)",
     "variable": "var(--colors-accent-300)"
   },
   "colors.accent.400": {
-    "value": "hsl(52deg 33% 28%)",
+    "value": "hsl(239.76 43.016460905349795% 41.66488747198734%)",
     "variable": "var(--colors-accent-400)"
   },
   "colors.accent.500": {
-    "value": "hsl(48deg 35% 36%)",
+    "value": "hsl(236.15999999999997 59.98353909465022% 58.33511252801266%)",
     "variable": "var(--colors-accent-500)"
   },
   "colors.accent.600": {
-    "value": "hsl(44deg 37% 46%)",
+    "value": "hsl(232.55999999999995 71.55555555555556% 73.99999999999999%)",
     "variable": "var(--colors-accent-600)"
   },
   "colors.accent.700": {
-    "value": "hsl(40deg 40% 57%)",
+    "value": "hsl(228.96000000000004 77.49794238683128% 86.77013326971094%)",
     "variable": "var(--colors-accent-700)"
   },
   "colors.accent.800": {
-    "value": "hsl(36deg 43% 69%)",
+    "value": "hsl(225.36 79.6872427983539% 95.1052457977236%)",
     "variable": "var(--colors-accent-800)"
   },
   "colors.accent.900": {
-    "value": "hsl(32deg 46% 82%)",
+    "value": "hsl(221.76 80% 98%)",
     "variable": "var(--colors-accent-900)"
   },
   "breakpoints.sm": {
@@ -1792,63 +1800,63 @@ const tokens = {
     "variable": "var(--font-sizes-heading1-max)"
   },
   "fontSizes.heading2": {
-    "value": "2.488rem",
+    "value": "1.802rem",
     "variable": "var(--font-sizes-heading2)"
   },
   "fontSizes.heading2.min": {
-    "value": "3.488rem",
+    "value": "1.802rem",
     "variable": "var(--font-sizes-heading2-min)"
   },
   "fontSizes.heading2.max": {
-    "value": "4.209rem",
+    "value": "3.052rem",
     "variable": "var(--font-sizes-heading2-max)"
   },
   "fontSizes.heading3": {
-    "value": "2.074rem",
+    "value": "1.602rem",
     "variable": "var(--font-sizes-heading3)"
   },
   "fontSizes.heading3.min": {
-    "value": "3.074rem",
+    "value": "1.602rem",
     "variable": "var(--font-sizes-heading3-min)"
   },
   "fontSizes.heading3.max": {
-    "value": "3.157rem",
+    "value": "2.441rem",
     "variable": "var(--font-sizes-heading3-max)"
   },
   "fontSizes.heading4": {
-    "value": "1.728rem",
+    "value": "1.424rem",
     "variable": "var(--font-sizes-heading4)"
   },
   "fontSizes.heading4.min": {
-    "value": "2.728rem",
+    "value": "1.424rem",
     "variable": "var(--font-sizes-heading4-min)"
   },
   "fontSizes.heading4.max": {
-    "value": "2.369rem",
+    "value": "1.953rem",
     "variable": "var(--font-sizes-heading4-max)"
   },
   "fontSizes.heading5": {
-    "value": "1.44rem",
+    "value": "1.266rem",
     "variable": "var(--font-sizes-heading5)"
   },
   "fontSizes.heading5.min": {
-    "value": "1.44rem",
+    "value": "1.266rem",
     "variable": "var(--font-sizes-heading5-min)"
   },
   "fontSizes.heading5.max": {
-    "value": "1.777rem",
+    "value": "1.563rem",
     "variable": "var(--font-sizes-heading5-max)"
   },
   "fontSizes.heading6": {
-    "value": "1.2rem",
+    "value": "1.125rem",
     "variable": "var(--font-sizes-heading6)"
   },
   "fontSizes.heading6.min": {
-    "value": "1.2rem",
+    "value": "1.125rem",
     "variable": "var(--font-sizes-heading6-min)"
   },
   "fontSizes.heading6.max": {
-    "value": "1.333rem",
+    "value": "1.25rem",
     "variable": "var(--font-sizes-heading6-max)"
   },
   "fontSizes.body": {
@@ -1891,9 +1899,13 @@ const tokens = {
     "value": "clamp(var(--spacing-4), 4vw, var(--spacing-96))",
     "variable": "var(--spacing-md-fluid)"
   },
-  "lineHeights.headingFluid": {
+  "lineHeights.headingFluid.sm": {
+    "value": "calc(clamp(60px, 8vw, 80px))",
+    "variable": "var(--line-heights-heading-fluid-sm)"
+  },
+  "lineHeights.headingFluid.lg": {
     "value": "calc(130px - clamp(0px, 6vw, 70px))",
-    "variable": "var(--line-heights-heading-fluid)"
+    "variable": "var(--line-heights-heading-fluid-lg)"
   },
   "colors.fg": {
     "value": "var(--colors-fg)",
@@ -1915,9 +1927,17 @@ const tokens = {
     "value": "var(--colors-bg-muted)",
     "variable": "var(--colors-bg-muted)"
   },
+  "colors.bg.opaque": {
+    "value": "var(--colors-bg-opaque)",
+    "variable": "var(--colors-bg-opaque)"
+  },
   "colors.link": {
     "value": "var(--colors-link)",
     "variable": "var(--colors-link)"
+  },
+  "colors.link.hover": {
+    "value": "var(--colors-link-hover)",
+    "variable": "var(--colors-link-hover)"
   },
   "colors.dottedOutline": {
     "value": "url(\"data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23333' stroke-width='1' stroke-dasharray='1%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e\")",
@@ -2123,6 +2143,10 @@ const tokens = {
     "value": "var(--colors-color-palette-950)",
     "variable": "var(--colors-color-palette-950)"
   },
+  "colors.colorPalette.darker": {
+    "value": "var(--colors-color-palette-darker)",
+    "variable": "var(--colors-color-palette-darker)"
+  },
   "colors.colorPalette.muted": {
     "value": "var(--colors-color-palette-muted)",
     "variable": "var(--colors-color-palette-muted)"
@@ -2130,6 +2154,18 @@ const tokens = {
   "colors.colorPalette.subtle": {
     "value": "var(--colors-color-palette-subtle)",
     "variable": "var(--colors-color-palette-subtle)"
+  },
+  "colors.colorPalette.lighter": {
+    "value": "var(--colors-color-palette-lighter)",
+    "variable": "var(--colors-color-palette-lighter)"
+  },
+  "colors.colorPalette.opaque": {
+    "value": "var(--colors-color-palette-opaque)",
+    "variable": "var(--colors-color-palette-opaque)"
+  },
+  "colors.colorPalette.hover": {
+    "value": "var(--colors-color-palette-hover)",
+    "variable": "var(--colors-color-palette-hover)"
   }
 }
 

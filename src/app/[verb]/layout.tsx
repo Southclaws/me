@@ -1,5 +1,6 @@
 import { PropsWithChildren } from "react";
 import { styled } from "@/styled-system/jsx";
+import Link from "next/link";
 
 export default function Layout({ children }: PropsWithChildren) {
   return (

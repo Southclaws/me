@@ -1,0 +1,52 @@
+.grid {
+  container: inline;
+  display: grid;
+
+  grid-template-columns: 1fr 1fr clamp(100px, calc(500px - 50vw), 200px) 1fr 1fr;
+  grid-template-rows: 1fr clamp(180px, calc(800px - 50vw), 250px) 1fr;
+
+  place-items: start;
+}
+
+.image {
+  transition: all 0.5s;
+}
+
+.content {
+  transition: all 0.5s;
+}
+
+.grid:hover > .image {
+  transform: rotate(0deg);
+  transform: scale(105%);
+}
+
+.grid:hover > .content {
+  transform: rotate(0deg);
+}
+
+.image-left {
+  grid-column: 1 / 4;
+  grid-row: 1 / 4;
+  aspect-ratio: 1/1;
+  transform: rotate(-2deg);
+}
+
+.content-left {
+  grid-row: 2/6;
+  grid-column: 3 / 6;
+  transform: rotate(1deg);
+}
+
+.image-right {
+  grid-column: 3 / 6;
+  grid-row: 1 / 4;
+  aspect-ratio: 1/1;
+  transform: rotate(2deg);
+}
+
+.content-right {
+  grid-row: 2/6;
+  grid-column: 1 / 4;
+  transform: rotate(-1deg);
+}

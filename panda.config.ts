@@ -1,5 +1,36 @@
 import { defineConfig } from "@pandacss/dev";
 
+// NOTE: types do not work for this package, despite being written in TS...
+const { generateColorRamp, colorToCSS } = require("rampensau");
+
+const accentColourRamp: [number, number, number][] = generateColorRamp({
+  total: 10,
+
+  hStart: 225,
+  hStartCenter: 0.1,
+  hCycles: 0.09,
+
+  sRange: [0.23, 0.8],
+  lRange: [0.02, 0.98],
+
+  hEasing: (x: number) => x,
+  sEasing: (x: number) =>
+    x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2,
+  lEasing: (x: number) => -(Math.cos(Math.PI * x) - 1) / 2,
+});
+
+const accent = Object.fromEntries(
+  accentColourRamp.map((color, idx) => {
+    const index = idx === 0 ? "50" : idx * 100;
+    return [
+      `${index}`,
+      {
+        value: colorToCSS(color, "hsl"),
+      },
+    ];
+  })
+);
+
 export default defineConfig({
   preflight: true,
   include: ["./src/**/*.{js,jsx,ts,tsx}"],
@@ -22,29 +53,29 @@ export default defineConfig({
             max: { value: "5.61rem" },
           },
           heading2: {
-            DEFAULT: { value: "2.488rem" },
-            min: { value: "3.488rem" },
-            max: { value: "4.209rem" },
+            DEFAULT: { value: "1.802rem" },
+            min: { value: "1.802rem" },
+            max: { value: "3.052rem" },
           },
           heading3: {
-            DEFAULT: { value: "2.074rem" },
-            min: { value: "3.074rem" },
-            max: { value: "3.157rem" },
+            DEFAULT: { value: "1.602rem" },
+            min: { value: "1.602rem" },
+            max: { value: "2.441rem" },
           },
           heading4: {
-            DEFAULT: { value: "1.728rem" },
-            min: { value: "2.728rem" },
-            max: { value: "2.369rem" },
+            DEFAULT: { value: "1.424rem" },
+            min: { value: "1.424rem" },
+            max: { value: "1.953rem" },
           },
           heading5: {
-            DEFAULT: { value: "1.44rem" },
-            min: { value: "1.44rem" },
-            max: { value: "1.777rem" },
+            DEFAULT: { value: "1.266rem" },
+            min: { value: "1.266rem" },
+            max: { value: "1.563rem" },
           },
           heading6: {
-            DEFAULT: { value: "1.2rem" },
-            min: { value: "1.2rem" },
-            max: { value: "1.333rem" },
+            DEFAULT: { value: "1.125rem" },
+            min: { value: "1.125rem" },
+            max: { value: "1.25rem" },
           },
           body: {
             DEFAULT: { value: "1rem" },
@@ -68,7 +99,10 @@ export default defineConfig({
           },
         },
         lineHeights: {
-          headingFluid: { value: "calc(130px - clamp(0px, 6vw, 70px))" },
+          headingFluid: {
+            sm: { value: "calc(clamp(60px, 8vw, 80px))" },
+            lg: { value: "calc(130px - clamp(0px, 6vw, 70px))" },
+          },
         },
         colors: {
           fg: {
@@ -104,11 +138,25 @@ export default defineConfig({
                 _osDark: "{colors.offblack.muted}",
               },
             },
+            opaque: {
+              value: {
+                base: "{colors.offwhite.darker}",
+                _osDark: "{colors.offblack.lighter}",
+              },
+            },
           },
           link: {
-            value: {
-              base: "{colors.accent.500}",
-              _osDark: "{colors.accent.800}",
+            DEFAULT: {
+              value: {
+                base: "{colors.accent.400}",
+                _osDark: "{colors.accent.600}",
+              },
+            },
+            hover: {
+              value: {
+                base: "{colors.accent.500}",
+                _osDark: "{colors.accent.500}",
+              },
             },
           },
           dottedOutline: {
@@ -134,56 +182,17 @@ export default defineConfig({
         colors: {
           offwhite: {
             DEFAULT: { value: "hsla(40, 100%, 99%, 1)" },
+            darker: { value: "hsla(40, 12%, 88%, 1)" },
             muted: { value: "hsla(40, 100%, 99%, 0.66)" },
             subtle: { value: "hsla(40, 100%, 99%, 0.1)" },
           },
           offblack: {
             DEFAULT: { value: "hsla(222, 18%, 25%, 1)" },
+            lighter: { value: "hsla(222, 18%, 32%, 1)" },
             muted: { value: "hsla(222, 18%, 25%, 0.66)" },
             subtle: { value: "hsla(222, 18%, 25%, 0.1)" },
           },
-          accent: {
-            "50": {
-              value: "hsl(28deg 50% 95%)",
-              description: "Silver Bird",
-            },
-            "100": {
-              value: "hsl(64deg 31% 12%)",
-              description: "Burrito",
-            },
-            "200": {
-              value: "hsl(60deg 32% 15%)",
-              description: "Crepe",
-            },
-            "300": {
-              value: "hsl(56deg 32% 20%)",
-              description: "Packing Paper",
-            },
-            "400": {
-              value: "hsl(52deg 33% 28%)",
-              description: "Salted Capers",
-            },
-            "500": {
-              value: "hsl(48deg 35% 36%)",
-              description: "Garden Weed",
-            },
-            "600": {
-              value: "hsl(44deg 37% 46%)",
-              description: "Reptile Revenge",
-            },
-            "700": {
-              value: "hsl(40deg 40% 57%)",
-              description: "Jungle King",
-            },
-            "800": {
-              value: "hsl(36deg 43% 69%)",
-              description: "Graphite",
-            },
-            "900": {
-              value: "hsl(32deg 46% 82%)",
-              description: "Underworld",
-            },
-          },
+          accent,
         },
       },
     },

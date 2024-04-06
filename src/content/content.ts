@@ -1,3 +1,4 @@
+import { Card, CardText } from "@/app/components/Card/Card";
 import { readFile } from "fs/promises";
 import { compileMDX } from "next-mdx-remote/rsc";
 import path from "path";
@@ -30,6 +31,10 @@ export async function getContent(params: PageParameters) {
     source,
     options: {
       parseFrontmatter: true,
+    },
+    components: {
+      Card: Card,
+      CardText: CardText,
     },
   });
 
