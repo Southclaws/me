@@ -41,7 +41,7 @@ export default function RootLayout({
       className={`${orbiter.variable} ${explorer.variable} ${inter.variable}`}
     >
       <body>
-        <Box p="md.fluid" height="full">
+        <Box p="sm.fluid" height="full">
           {children}
         </Box>
       </body>

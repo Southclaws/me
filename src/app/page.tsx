@@ -1,4 +1,13 @@
-import { Box, HStack, styled } from "@/styled-system/jsx";
+import { styled } from "@/styled-system/jsx";
+
+const BioParagraph = styled("p", {
+  base: {
+    maxW: {
+      base: "full",
+      md: "breakpoint-md",
+    },
+  },
+});
 
 export default function Home() {
   return (
@@ -10,8 +19,7 @@ export default function Home() {
       height="full"
       maxW="breakpoint-md"
       marginX="auto"
-      background="outline"
-      p="md.fluid"
+      p="sm.fluid"
     >
       <header>
         <styled.hgroup mb={{ base: "8", md: "4" }}>
@@ -21,14 +29,15 @@ export default function Home() {
           </styled.p>
         </styled.hgroup>
 
-        <p>
+        <BioParagraph>
           you can call me barney, I’m a multidisciplinary maker from england.
-        </p>
+        </BioParagraph>
 
-        <p>
+        <BioParagraph>
           with experience across a wide variety of creative tools and technical
-          skills, I solve design, storytelling and technical problems.
-        </p>
+          skills, I build and lead world-class teams for solving complex
+          problems.
+        </BioParagraph>
 
         <nav>
           <ul>

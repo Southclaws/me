@@ -6,6 +6,8 @@ export default defineConfig({
   exclude: [],
   jsxFramework: "react",
   strictTokens: true,
+  strictPropertyValues: true,
+  validation: "error",
   theme: {
     extend: {
       semanticTokens: {
@@ -56,6 +58,10 @@ export default defineConfig({
           },
         },
         spacing: {
+          sm: {
+            DEFAULT: { value: "{spacing.2}" },
+            fluid: { value: "clamp(var(--spacing-2), 2vw, var(--spacing-48))" },
+          },
           md: {
             DEFAULT: { value: "{spacing.4}" },
             fluid: { value: "clamp(var(--spacing-4), 4vw, var(--spacing-96))" },
@@ -68,8 +74,8 @@ export default defineConfig({
           fg: {
             DEFAULT: {
               value: {
-                base: "colors.offblack",
-                _osDark: "colors.offwhite",
+                base: "{colors.offblack}",
+                _osDark: "{colors.offwhite}",
               },
             },
             muted: {
@@ -88,8 +94,8 @@ export default defineConfig({
           bg: {
             DEFAULT: {
               value: {
-                base: "colors.offwhite",
-                _osDark: "colors.offblack",
+                base: "{colors.offwhite}",
+                _osDark: "{colors.offblack}",
               },
             },
             muted: {
@@ -105,7 +111,7 @@ export default defineConfig({
               _osDark: "{colors.accent.800}",
             },
           },
-          outline: {
+          dottedOutline: {
             value: `url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23333' stroke-width='1' stroke-dasharray='1%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e")`,
           },
         },

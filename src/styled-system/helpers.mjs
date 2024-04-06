@@ -113,13 +113,16 @@ function mapObject(obj, fn) {
 
 // src/normalize-style-object.ts
 function toResponsiveObject(values, breakpoints) {
-  return values.reduce((acc, current, index) => {
-    const key = breakpoints[index];
-    if (current != null) {
-      acc[key] = current;
-    }
-    return acc;
-  }, {});
+  return values.reduce(
+    (acc, current, index) => {
+      const key = breakpoints[index];
+      if (current != null) {
+        acc[key] = current;
+      }
+      return acc;
+    },
+    {}
+  );
 }
 function normalizeStyleObject(styles, context, shorthand = true) {
   const { utility, conditions } = context;
@@ -226,7 +229,7 @@ var patternFns = {
   isCssUnit
 };
 var getPatternStyles = (pattern, styles) => {
-  if (!pattern.defaultValues)
+  if (!pattern?.defaultValues)
     return styles;
   const defaults = typeof pattern.defaultValues === "function" ? pattern.defaultValues(styles) : pattern.defaultValues;
   return Object.assign({}, defaults, compact(styles));
