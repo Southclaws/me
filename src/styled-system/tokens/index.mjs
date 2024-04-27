@@ -1687,76 +1687,124 @@ const tokens = {
     "value": "#020617",
     "variable": "var(--colors-slate-950)"
   },
-  "colors.offwhite": {
-    "value": "hsla(40, 100%, 99%, 1)",
-    "variable": "var(--colors-offwhite)"
+  "colors.offwhite.50": {
+    "value": "hsl(40.432000000000016 0% 60%)",
+    "variable": "var(--colors-offwhite-50)"
   },
-  "colors.offwhite.darker": {
-    "value": "hsla(40, 12%, 88%, 1)",
-    "variable": "var(--colors-offwhite-darker)"
+  "colors.offwhite.100": {
+    "value": "hsl(39.952 0.16460905349794236% 61.20614758428184%)",
+    "variable": "var(--colors-offwhite-100)"
   },
-  "colors.offwhite.muted": {
-    "value": "hsla(40, 100%, 99%, 0.66)",
-    "variable": "var(--colors-offwhite-muted)"
+  "colors.offwhite.200": {
+    "value": "hsl(39.47199999999998 1.3168724279835389% 64.67911113762044%)",
+    "variable": "var(--colors-offwhite-200)"
   },
-  "colors.offwhite.subtle": {
-    "value": "hsla(40, 100%, 99%, 0.1)",
-    "variable": "var(--colors-offwhite-subtle)"
+  "colors.offwhite.300": {
+    "value": "hsl(38.99200000000002 4.444444444444444% 70%)",
+    "variable": "var(--colors-offwhite-300)"
   },
-  "colors.offblack": {
-    "value": "hsla(222, 18%, 25%, 1)",
-    "variable": "var(--colors-offblack)"
+  "colors.offwhite.400": {
+    "value": "hsl(38.512 10.534979423868311% 76.52703644666138%)",
+    "variable": "var(--colors-offwhite-400)"
   },
-  "colors.offblack.lighter": {
-    "value": "hsla(222, 18%, 32%, 1)",
-    "variable": "var(--colors-offblack-lighter)"
+  "colors.offwhite.500": {
+    "value": "hsl(38.03199999999998 19.46502057613169% 83.4729635533386%)",
+    "variable": "var(--colors-offwhite-500)"
   },
-  "colors.offblack.muted": {
-    "value": "hsla(222, 18%, 25%, 0.66)",
-    "variable": "var(--colors-offblack-muted)"
+  "colors.offwhite.600": {
+    "value": "hsl(37.55200000000002 25.555555555555554% 89.99999999999999%)",
+    "variable": "var(--colors-offwhite-600)"
   },
-  "colors.offblack.subtle": {
-    "value": "hsla(222, 18%, 25%, 0.1)",
-    "variable": "var(--colors-offblack-subtle)"
+  "colors.offwhite.700": {
+    "value": "hsl(37.072 28.68312757201646% 95.32088886237956%)",
+    "variable": "var(--colors-offwhite-700)"
+  },
+  "colors.offwhite.800": {
+    "value": "hsl(36.591999999999985 29.835390946502056% 98.79385241571816%)",
+    "variable": "var(--colors-offwhite-800)"
+  },
+  "colors.offwhite.900": {
+    "value": "hsl(36.11200000000002 30% 100%)",
+    "variable": "var(--colors-offwhite-900)"
+  },
+  "colors.offblack.50": {
+    "value": "hsl(204 35% 40%)",
+    "variable": "var(--colors-offblack-50)"
+  },
+  "colors.offblack.100": {
+    "value": "hsl(208 34.89026063100137% 39.24615775982386%)",
+    "variable": "var(--colors-offblack-100)"
+  },
+  "colors.offblack.200": {
+    "value": "hsl(212 34.122085048010966% 37.075555538987224%)",
+    "variable": "var(--colors-offblack-200)"
+  },
+  "colors.offblack.300": {
+    "value": "hsl(216 32.03703703703704% 33.75%)",
+    "variable": "var(--colors-offblack-300)"
+  },
+  "colors.offblack.400": {
+    "value": "hsl(220 27.976680384087793% 29.670602220836635%)",
+    "variable": "var(--colors-offblack-400)"
+  },
+  "colors.offblack.500": {
+    "value": "hsl(224 22.023319615912207% 25.329397779163376%)",
+    "variable": "var(--colors-offblack-500)"
+  },
+  "colors.offblack.600": {
+    "value": "hsl(228 17.962962962962962% 21.250000000000004%)",
+    "variable": "var(--colors-offblack-600)"
+  },
+  "colors.offblack.700": {
+    "value": "hsl(232 15.877914951989025% 17.92444446101278%)",
+    "variable": "var(--colors-offblack-700)"
+  },
+  "colors.offblack.800": {
+    "value": "hsl(236 15.109739368998628% 15.753842240176146%)",
+    "variable": "var(--colors-offblack-800)"
+  },
+  "colors.offblack.900": {
+    "value": "hsl(240 15% 15.000000000000002%)",
+    "variable": "var(--colors-offblack-900)"
   },
   "colors.accent.50": {
-    "value": "hsl(254.15999999999997 23% 2%)",
+    "value": "hsl(44.160000000000025 23% 2%)",
     "variable": "var(--colors-accent-50)"
   },
   "colors.accent.100": {
-    "value": "hsl(250.55999999999995 23.312757201646093% 4.8947542022763955%)",
+    "value": "hsl(40.56 23.312757201646093% 4.8947542022763955%)",
     "variable": "var(--colors-accent-100)"
   },
   "colors.accent.200": {
-    "value": "hsl(246.96000000000004 25.502057613168727% 13.229866730289055%)",
+    "value": "hsl(36.95999999999998 25.502057613168727% 13.229866730289055%)",
     "variable": "var(--colors-accent-200)"
   },
   "colors.accent.300": {
-    "value": "hsl(243.36 31.444444444444446% 25.999999999999996%)",
+    "value": "hsl(33.360000000000014 31.444444444444446% 25.999999999999996%)",
     "variable": "var(--colors-accent-300)"
   },
   "colors.accent.400": {
-    "value": "hsl(239.76 43.016460905349795% 41.66488747198734%)",
+    "value": "hsl(29.75999999999999 43.016460905349795% 41.66488747198734%)",
     "variable": "var(--colors-accent-400)"
   },
   "colors.accent.500": {
-    "value": "hsl(236.15999999999997 59.98353909465022% 58.33511252801266%)",
+    "value": "hsl(26.160000000000025 59.98353909465022% 58.33511252801266%)",
     "variable": "var(--colors-accent-500)"
   },
   "colors.accent.600": {
-    "value": "hsl(232.55999999999995 71.55555555555556% 73.99999999999999%)",
+    "value": "hsl(22.560000000000002 71.55555555555556% 73.99999999999999%)",
     "variable": "var(--colors-accent-600)"
   },
   "colors.accent.700": {
-    "value": "hsl(228.96000000000004 77.49794238683128% 86.77013326971094%)",
+    "value": "hsl(18.95999999999998 77.49794238683128% 86.77013326971094%)",
     "variable": "var(--colors-accent-700)"
   },
   "colors.accent.800": {
-    "value": "hsl(225.36 79.6872427983539% 95.1052457977236%)",
+    "value": "hsl(15.360000000000014 79.6872427983539% 95.1052457977236%)",
     "variable": "var(--colors-accent-800)"
   },
   "colors.accent.900": {
-    "value": "hsl(221.76 80% 98%)",
+    "value": "hsl(11.759999999999991 80% 98%)",
     "variable": "var(--colors-accent-900)"
   },
   "breakpoints.sm": {
@@ -1899,6 +1947,10 @@ const tokens = {
     "value": "clamp(var(--spacing-4), 4vw, var(--spacing-96))",
     "variable": "var(--spacing-md-fluid)"
   },
+  "spacing.headerGroup": {
+    "value": "clamp(0px, calc(1rem - 2vw), 0.5rem)",
+    "variable": "var(--spacing-header-group)"
+  },
   "lineHeights.headingFluid.sm": {
     "value": "calc(clamp(60px, 8vw, 80px))",
     "variable": "var(--line-heights-heading-fluid-sm)"
@@ -1907,6 +1959,22 @@ const tokens = {
     "value": "calc(130px - clamp(0px, 6vw, 70px))",
     "variable": "var(--line-heights-heading-fluid-lg)"
   },
+  "lineHeights.headerGroup": {
+    "value": "0.6",
+    "variable": "var(--line-heights-header-group)"
+  },
+  "colors.offwhite": {
+    "value": "var(--colors-offwhite-800)",
+    "variable": "var(--colors-offwhite)"
+  },
+  "colors.offblack": {
+    "value": "var(--colors-offblack-600)",
+    "variable": "var(--colors-offblack)"
+  },
+  "colors.accent": {
+    "value": "var(--colors-accent)",
+    "variable": "var(--colors-accent)"
+  },
   "colors.fg": {
     "value": "var(--colors-fg)",
     "variable": "var(--colors-fg)"
@@ -1914,10 +1982,6 @@ const tokens = {
   "colors.fg.muted": {
     "value": "var(--colors-fg-muted)",
     "variable": "var(--colors-fg-muted)"
-  },
-  "colors.fg.subtle": {
-    "value": "var(--colors-fg-subtle)",
-    "variable": "var(--colors-fg-subtle)"
   },
   "colors.bg": {
     "value": "var(--colors-bg)",
@@ -1939,12 +2003,8 @@ const tokens = {
     "value": "var(--colors-link-hover)",
     "variable": "var(--colors-link-hover)"
   },
-  "colors.dottedOutline": {
-    "value": "url(\"data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23333' stroke-width='1' stroke-dasharray='1%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e\")",
-    "variable": "var(--colors-dotted-outline)"
-  },
   "borders.dotted": {
-    "value": "1px dashed var(--colors-fg-subtle)",
+    "value": "1px dashed var(--colors-fg-muted)",
     "variable": "var(--borders-dotted)"
   },
   "spacing.-1": {
@@ -2095,6 +2155,10 @@ const tokens = {
     "value": "calc(var(--spacing-md-fluid) * -1)",
     "variable": "var(--spacing-md-fluid)"
   },
+  "spacing.-headerGroup": {
+    "value": "calc(var(--spacing-header-group) * -1)",
+    "variable": "var(--spacing-header-group)"
+  },
   "colors.colorPalette": {
     "value": "var(--colors-color-palette)",
     "variable": "var(--colors-color-palette)"
@@ -2143,21 +2207,9 @@ const tokens = {
     "value": "var(--colors-color-palette-950)",
     "variable": "var(--colors-color-palette-950)"
   },
-  "colors.colorPalette.darker": {
-    "value": "var(--colors-color-palette-darker)",
-    "variable": "var(--colors-color-palette-darker)"
-  },
   "colors.colorPalette.muted": {
     "value": "var(--colors-color-palette-muted)",
     "variable": "var(--colors-color-palette-muted)"
-  },
-  "colors.colorPalette.subtle": {
-    "value": "var(--colors-color-palette-subtle)",
-    "variable": "var(--colors-color-palette-subtle)"
-  },
-  "colors.colorPalette.lighter": {
-    "value": "var(--colors-color-palette-lighter)",
-    "variable": "var(--colors-color-palette-lighter)"
   },
   "colors.colorPalette.opaque": {
     "value": "var(--colors-color-palette-opaque)",

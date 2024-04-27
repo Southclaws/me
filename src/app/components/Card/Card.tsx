@@ -1,9 +1,8 @@
-import { Box, GridItem, HStack, VStack, styled } from "@/styled-system/jsx";
-import styles from "./card.module.css";
-import { PropsWithChildren } from "react";
+import { cx } from "@/styled-system/css";
+import { Box, HStack, VStack, styled } from "@/styled-system/jsx";
 import Link from "next/link";
-import { token } from "@/styled-system/tokens";
-import { css, cva, cx } from "@/styled-system/css";
+import { PropsWithChildren } from "react";
+import styles from "./card.module.css";
 
 type Props = {
   title: string;

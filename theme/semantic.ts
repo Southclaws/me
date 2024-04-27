@@ -13,14 +13,28 @@ export const semanticTokens = defineSemanticTokens({
       DEFAULT: { value: "{spacing.4}" },
       fluid: { value: "clamp(var(--spacing-4), 4vw, var(--spacing-96))" },
     },
+    headerGroup: { value: "clamp(0px, calc(1rem - 2vw), 0.5rem)" },
   },
   lineHeights: {
     headingFluid: {
       sm: { value: "calc(clamp(60px, 8vw, 80px))" },
       lg: { value: "calc(130px - clamp(0px, 6vw, 70px))" },
     },
+    headerGroup: { value: "0.6" },
   },
   colors: {
+    offwhite: {
+      value: "{colors.offwhite.800}",
+    },
+    offblack: {
+      value: "{colors.offblack.600}",
+    },
+    accent: {
+      value: {
+        base: "{colors.accent.500}",
+        _osDark: "{colors.accent.800}",
+      },
+    },
     fg: {
       DEFAULT: {
         value: {
@@ -30,14 +44,8 @@ export const semanticTokens = defineSemanticTokens({
       },
       muted: {
         value: {
-          base: "{colors.offblack.muted}",
-          _osDark: "{colors.offwhite.muted}",
-        },
-      },
-      subtle: {
-        value: {
-          base: "{colors.offblack.subtle}",
-          _osDark: "{colors.offwhite.subtle}",
+          base: "{colors.offwhite.50}",
+          _osDark: "{colors.offwhite.50}",
         },
       },
     },
@@ -50,40 +58,37 @@ export const semanticTokens = defineSemanticTokens({
       },
       muted: {
         value: {
-          base: "{colors.offwhite.muted}",
-          _osDark: "{colors.offblack.muted}",
+          base: "{colors.offwhite.700}",
+          _osDark: "{colors.offblack.500}",
         },
       },
       opaque: {
         value: {
-          base: "{colors.offwhite.darker}",
-          _osDark: "{colors.offblack.lighter}",
+          base: "{colors.offwhite.700}",
+          _osDark: "{colors.offblack.500}",
         },
       },
     },
     link: {
       DEFAULT: {
         value: {
-          base: "{colors.accent.400}",
+          base: "{colors.accent.500}",
           _osDark: "{colors.accent.600}",
         },
       },
       hover: {
         value: {
-          base: "{colors.accent.500}",
+          base: "{colors.accent.600}",
           _osDark: "{colors.accent.500}",
         },
       },
-    },
-    dottedOutline: {
-      value: `url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23333' stroke-width='1' stroke-dasharray='1%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e")`,
     },
   },
   borders: {
     dotted: {
       value: {
         width: "1",
-        color: "{colors.fg.subtle}",
+        color: "{colors.fg.muted}",
         style: "dashed",
       },
     },
