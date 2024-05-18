@@ -78,12 +78,13 @@ function Row({ d, i }: any) {
   const mp = useMousePosition();
 
   const ref = useRef<HTMLDivElement>(null);
+  const curr = ref.current!;
+  const mouseY = mp.y ?? 0;
+
+  const wh = getWindowHeight();
 
   const y = Math.abs(
-    (ref.current?.getClientRects()[0]?.top +
-      ref.current?.clientHeight / 2 -
-      mp.y) /
-      window.innerHeight
+    (curr?.getClientRects()[0]?.top + curr?.clientHeight / 2 - mouseY) / wh
   );
 
   const fontWeight = 900 - 900 * y;
@@ -113,13 +114,14 @@ function Row({ d, i }: any) {
   );
 }
 
+// thanks josh comeau
 const useMousePosition = () => {
   const [mousePosition, setMousePosition] = React.useState({
     x: null,
     y: null,
   });
   React.useEffect(() => {
-    const updateMousePosition = (ev) => {
+    const updateMousePosition = (ev: any) => {
       setMousePosition({ x: ev.clientX, y: ev.clientY });
     };
     window.addEventListener("mousemove", updateMousePosition);
@@ -129,3 +131,11 @@ const useMousePosition = () => {
   }, []);
   return mousePosition;
 };
+
+function getWindowHeight() {
+  if (typeof window === "undefined") {
+    return 1080;
+  }
+
+  return window.innerHeight;
+}
