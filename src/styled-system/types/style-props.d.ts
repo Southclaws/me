@@ -429,7 +429,7 @@ animationIterationCount?: ConditionalValue<WithEscapeHatch<CssProperties["animat
    *
    * @see https://developer.mozilla.org/docs/Web/CSS/animation-name
    */
-animationName?: ConditionalValue<WithEscapeHatch<CssProperties["animationName"]>>
+animationName?: ConditionalValue<WithEscapeHatch<UtilityValues["animationName"] | CssVars>>
  /**
    * The **`animation-play-state`** CSS property sets whether an animation is running or paused.
    *

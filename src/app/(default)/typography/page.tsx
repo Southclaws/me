@@ -25,13 +25,13 @@ export default async function Page() {
       <h6>heading level six</h6>
       <p>
         the quick brown fox jumps over the lackadaisical zebra, yes this is not
-        an full pangram, but it's unique and that's what matters.
+        an full pangram, but it&apos;s unique and that&apos;s what matters.
       </p>
 
       <hr />
 
       <p>
-        I'm a bit of a typography <strong>nerd</strong>, I <em>love</em>{" "}
+        I&apos;m a bit of a typography <strong>nerd</strong>, I <em>love</em>{" "}
         typefaces and experimenting with letterforms. This is my secret
         playground for testing out the type scales for this website. The
         typeface in use is TASA Orbiter for the headings which was designed by{" "}
@@ -47,17 +47,17 @@ export default async function Page() {
 
       <p>
         ask me about the importance of <code>&amp;nbsp;</code> and{" "}
-        <code>&lt;wbr/&gt;</code> and I'd happily discuss the art of digital
-        typesetting for hours over a beer!
+        <code>&lt;wbr/&gt;</code> and I&apos;d happily discuss the art of
+        digital typesetting for hours over a beer!
       </p>
 
       <p>
         my go-to inspiration for type is newspapers and magazines, you may be
-        able to tell from the colour scheme of this site (that is, if you're
-        reading in the daytime...)
+        able to tell from the colour scheme of this site (that is, if
+        you&apos;re reading in the daytime...)
       </p>
 
-      <p>at night it's more of a low-key restaurant menu vibe tbh.</p>
+      <p>at night it&apos;s more of a low-key restaurant menu vibe tbh.</p>
 
       <p>
         anyway, rambling, how did you even end up here?{" "}

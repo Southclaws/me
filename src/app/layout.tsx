@@ -1,25 +1,6 @@
-import { Box } from "@/styled-system/jsx";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import localFont from "next/font/local";
+import { explorer, inter, orbiter } from "./fonts";
 import "./globals.css";
-
-const orbiter = localFont({
-  src: "./TASAOrbiterVF.woff2",
-  preload: true,
-  variable: "--font-orbiter",
-});
-
-const explorer = localFont({
-  src: "./TASAExplorerVF.woff2",
-  variable: "--font-explorer",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  preload: true,
-  variable: "--font-inter",
-});
 
 export const metadata: Metadata = {
   title: {
@@ -40,11 +21,7 @@ export default function RootLayout({
       lang="en"
       className={`${orbiter.variable} ${explorer.variable} ${inter.variable}`}
     >
-      <body>
-        <Box p="sm.fluid" height="full" pb="md.fluid">
-          {children}
-        </Box>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

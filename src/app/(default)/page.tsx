@@ -1,6 +1,6 @@
-import { Box, Grid, GridItem, VStack, styled } from "@/styled-system/jsx";
-import { Card } from "./components/Card/Card";
+import { VStack, styled } from "@/styled-system/jsx";
 import Link from "next/link";
+import { Card } from "../components/Card/Card";
 
 const BioParagraph = styled("p", {
   base: {
@@ -21,7 +21,6 @@ export default async function Home() {
       height="full"
       maxW="breakpoint-md"
       marginX="auto"
-      p="sm.fluid"
     >
       <header>
         <styled.hgroup mb={{ base: "8", md: "4" }}>
