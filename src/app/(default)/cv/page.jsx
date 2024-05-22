@@ -266,20 +266,34 @@ export default function Page() {
           >
             Note:
           </styled.span>{" "}
-          <a href="javascript:window.print()">Print this page</a> for a
-          printer-friendly or PDF version of my curriculum vitae.
+          <span
+            // React will block javascript: URLs as a security precaution.
+            dangerouslySetInnerHTML={{
+              __html: `<a href="javascript:window.print()">Print this page</a>`,
+            }}
+          />{" "}
+          for a printer-friendly or PDF version of my curriculum vitae.
         </styled.aside>
 
         <HStack justify="space-between">
           <VStack alignItems="start" gap="1">
             <styled.h1 lineHeight="none">Barnaby Keene</styled.h1>
             <div>
-              <Link icon={<Web height="1em" />} text="www.southcla.ws" />
               <Link
+                href="https://www.southcla.ws"
+                icon={<Web height="1em" />}
+                text="www.southcla.ws"
+              />
+              <Link
+                href="https://github.com/southclaws"
                 icon={<Github height="1em" />}
                 text="github.com/southclaws"
               />
-              <Link icon={<Mail height="1em" />} text="barney@hey.com" />
+              <Link
+                href="mailto:barney@hey.com"
+                icon={<Mail height="1em" />}
+                text="barney@hey.com"
+              />
             </div>
           </VStack>
 
