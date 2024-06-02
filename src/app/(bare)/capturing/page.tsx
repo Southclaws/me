@@ -20,7 +20,6 @@ const square = css({
     base: "xl",
     lg: "2xl",
   },
-  boxShadow: "2xl",
   objectFit: "cover",
 });
 
