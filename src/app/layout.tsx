@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { explorer, inter, orbiter } from "./fonts";
+import { albertus, explorer, futura, inter, orbiter } from "./fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${orbiter.variable} ${explorer.variable} ${inter.variable}`}
+      className={`${orbiter.variable} ${explorer.variable} ${inter.variable} ${albertus.variable} ${futura.variable}`}
     >
       <body>{children}</body>
     </html>

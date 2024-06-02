@@ -703,6 +703,14 @@ const tokens = {
     "value": "var(--font-inter)",
     "variable": "var(--fonts-inter)"
   },
+  "fonts.albertus": {
+    "value": "var(--font-albertus)",
+    "variable": "var(--fonts-albertus)"
+  },
+  "fonts.futura": {
+    "value": "var(--font-futura)",
+    "variable": "var(--fonts-futura)"
+  },
   "colors.current": {
     "value": "currentColor",
     "variable": "var(--colors-current)"
@@ -1807,6 +1815,14 @@ const tokens = {
     "value": "hsl(11.759999999999991 80% 98%)",
     "variable": "var(--colors-accent-900)"
   },
+  "colors.custom.aswad-black": {
+    "value": "#17181C",
+    "variable": "var(--colors-custom-aswad-black)"
+  },
+  "colors.custom.100mph": {
+    "value": "#C93F38",
+    "variable": "var(--colors-custom-100mph)"
+  },
   "breakpoints.sm": {
     "value": "640px",
     "variable": "var(--breakpoints-sm)"
@@ -2206,6 +2222,14 @@ const tokens = {
   "colors.colorPalette.950": {
     "value": "var(--colors-color-palette-950)",
     "variable": "var(--colors-color-palette-950)"
+  },
+  "colors.colorPalette.aswad-black": {
+    "value": "var(--colors-color-palette-aswad-black)",
+    "variable": "var(--colors-color-palette-aswad-black)"
+  },
+  "colors.colorPalette.100mph": {
+    "value": "var(--colors-color-palette-100mph)",
+    "variable": "var(--colors-color-palette-100mph)"
   },
   "colors.colorPalette.muted": {
     "value": "var(--colors-color-palette-muted)",

@@ -26,6 +26,10 @@ const colours = {
     minSaturation: 0.23,
     maxSaturation: 0.8,
   }),
+  custom: {
+    "aswad-black": { value: "#17181C" },
+    "100mph": { value: "#C93F38" },
+  },
 };
 
 export const tokens = defineTokens({
@@ -33,6 +37,8 @@ export const tokens = defineTokens({
     orbiter: { value: "var(--font-orbiter)" },
     explorer: { value: "var(--font-explorer)" },
     inter: { value: "var(--font-inter)" },
+    albertus: { value: "var(--font-albertus)" },
+    futura: { value: "var(--font-futura)" },
   },
   colors: colours,
 });

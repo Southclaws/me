@@ -7,13 +7,14 @@ html {
   color: var(--colors-fg);
 
   --font-scale: 10vw;
-}
-
-* {
-  transition: all 0.2s;
+  scroll-snap-type: both mandatory;
 }
 
 @layer base {
+  * {
+    transition: all 0.2s;
+  }
+
   h1 {
     font-size: var(--font-sizes-heading1);
     font-size: clamp(

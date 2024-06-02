@@ -1,141 +1,77 @@
-"use client";
+import { PhotoStack } from "@/app/components/PhotoStack/PhotoStack";
+import { css } from "@/styled-system/css";
+import { Box, Center, Grid, Square, VStack, styled } from "@/styled-system/jsx";
 
-import { Box, Grid, VStack, styled } from "@/styled-system/jsx";
-import React, { useRef } from "react";
+const page = css({
+  height: "lvh",
+  padding: "md.fluid",
+  scrollSnapAlign: "start",
+  scrollSnapStop: "always",
+});
 
-export default function Page() {
+export default async function Page() {
   return (
-    <>
-      <Grid
-        w="full"
-        minH="dvh"
-        maxH="dvh"
-        height="dvh"
-        gap="0"
-        userSelect="none"
-      >
-        {[
-          { bg: "accent.100" as const, fg: "accent.200" as const },
-          { bg: "accent.200" as const, fg: "accent.300" as const },
-          { bg: "accent.300" as const, fg: "accent.400" as const },
-          { bg: "accent.400" as const, fg: "accent.500" as const },
-          { bg: "accent.500" as const, fg: "accent.600" as const },
-          { bg: "accent.600" as const, fg: "accent.700" as const },
-          { bg: "accent.700" as const, fg: "accent.800" as const },
-          { bg: "accent.800" as const, fg: "accent.900" as const },
-          { bg: "accent.700" as const, fg: "accent.800" as const },
-          { bg: "accent.600" as const, fg: "accent.700" as const },
-          { bg: "accent.500" as const, fg: "accent.600" as const },
-          { bg: "accent.400" as const, fg: "accent.500" as const },
-          { bg: "accent.300" as const, fg: "accent.400" as const },
-          { bg: "accent.200" as const, fg: "accent.300" as const },
-          { bg: "accent.100" as const, fg: "accent.200" as const },
-        ].map((d, i) => (
-          <Row key={i} d={d} i={i} />
-        ))}
-      </Grid>
-
-      <VStack
-        position="absolute"
-        top="0"
-        right="0"
-        h="dvh"
-        justify="start"
-        p="md.fluid"
-      >
-        <Box
-          bgColor="accent.800/50"
-          p="8"
-          backdropBlur="md"
-          backdropFilter="auto"
-          color="accent.100/80"
-          borderRadius="2xl"
-          // blur="xl"
-          // filter="auto"
-          maxW={{
-            base: "4/2",
-            md: "3/2",
-            lg: "1/2",
-          }}
-        >
-          <h1>capturing images</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. A, mollitia
-            tempora velit esse ad id dolore natus totam sed commodi aspernatur
-            in, magnam ab deleniti? Cum excepturi repellendus facere quibusdam!
-          </p>
-          <styled.img
-            src="https://source.unsplash.com/random/400x320"
-            borderRadius="lg"
-          />
-        </Box>
-      </VStack>
-    </>
-  );
-}
-
-function Row({ d, i }: any) {
-  const mp = useMousePosition();
-
-  const ref = useRef<HTMLDivElement>(null);
-  const curr = ref.current!;
-  const mouseY = mp.y ?? 0;
-
-  const wh = getWindowHeight();
-
-  const y = Math.abs(
-    (curr?.getClientRects()[0]?.top + curr?.clientHeight / 2 - mouseY) / wh
-  );
-
-  const fontWeight = 900 - 900 * y;
-
-  return (
-    <Box
-      ref={ref}
-      w="full"
-      bgColor={d.bg}
-      overflow="hidden"
-      style={
-        {
-          "--w": fontWeight,
-        } as any
-      }
-    >
-      <styled.h1
-        fontFamily="explorer"
-        fontSize="6xl"
-        lineHeight="tight"
-        fontWeight="var(--w)"
-        color={d.fg}
-      >
-        capturing
-      </styled.h1>
+    <Box>
+      <Center className={page} bgColor="custom.aswad-black">
+        <PhotoStack
+          photos={[
+            {
+              src: "/photography/2019-09-21 spherical.jpg",
+              width: 1694,
+              height: 1368,
+              alt: "Taking a photo of myself in a spherical mirror at the Tom Dixon store in Kings Cross Coal Drops Yard.",
+            },
+            {
+              src: "/photography/DSC00771.jpg",
+              width: 2832,
+              height: 2832,
+              alt: "A lens one of the first founders I worked with gave me as a gift!",
+            },
+            {
+              src: "/photography/2020-01-31 sony-luxembourg.jpg",
+              width: 3456,
+              height: 4608,
+              alt: "The Sony overlooking Luxembourg.",
+            },
+            {
+              src: "/photography/2019-10-02 sony-mountain.jpg",
+              width: 3456,
+              height: 3456,
+              alt: "The Sony in Zakopane.",
+            },
+            {
+              src: "/photography/2020-05-17 sony-forest.jpg",
+              width: 3456,
+              height: 4608,
+              alt: "The Sony on a forest floor.",
+            },
+            {
+              src: "/photography/film at kc.jpg",
+              width: 3024,
+              height: 4032,
+              alt: "Praktika BX20 at Kings Cross.",
+            },
+            {
+              src: "/photography/film in snow.jpg",
+              width: 3024,
+              height: 4032,
+              alt: "Praktika BX20 chilling.",
+            },
+            {
+              src: "/photography/IMG_1409.HEIC.jpg",
+              width: 3024,
+              height: 4032,
+              alt: "Sony by the sea.",
+            },
+            {
+              src: "/photography/IMG_2965.HEIC.jpg",
+              width: 3024,
+              height: 4032,
+              alt: "Praktika BX20 somewhere on a rooftop (I forgot where).",
+            },
+          ]}
+        />
+      </Center>
     </Box>
   );
-}
-
-// thanks josh comeau
-const useMousePosition = () => {
-  const [mousePosition, setMousePosition] = React.useState({
-    x: null,
-    y: null,
-  });
-  React.useEffect(() => {
-    const updateMousePosition = (ev: any) => {
-      setMousePosition({ x: ev.clientX, y: ev.clientY });
-    };
-    window.addEventListener("mousemove", updateMousePosition);
-    return () => {
-      window.removeEventListener("mousemove", updateMousePosition);
-    };
-  }, []);
-  return mousePosition;
-};
-
-function getWindowHeight() {
-  if (typeof window === "undefined") {
-    return 1080;
-  }
-
-  return window.innerHeight;
 }

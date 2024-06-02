@@ -75,3 +75,9 @@ export const albertus = localFont({
   preload: false,
   variable: "--font-albertus",
 });
+
+export const futura = localFont({
+  src: [{ path: "./static/futura.woff2", weight: "500" }],
+  preload: true,
+  variable: "--font-futura",
+});
