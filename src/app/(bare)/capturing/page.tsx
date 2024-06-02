@@ -33,8 +33,8 @@ const page = css({
 
 export default async function Page() {
   return (
-    <Box>
-      <Center className={page} bgColor="custom.aswad-black">
+    <Box maxW="screen">
+      <Center className={page} bgColor="custom.aswad-black" overflowX="hidden">
         <PhotoStack
           photos={[
             {
