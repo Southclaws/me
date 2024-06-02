@@ -1,6 +1,28 @@
 import { PhotoStack } from "@/app/components/PhotoStack/PhotoStack";
 import { css } from "@/styled-system/css";
 import { Box, Center, Grid, Square, VStack, styled } from "@/styled-system/jsx";
+import Image from "next/image";
+import Link from "next/link";
+
+const square = css({
+  w: "full",
+  position: "relative",
+  maxH: {
+    base: "sm",
+    sm: "lg",
+  },
+  maxW: {
+    base: "sm",
+    sm: "lg",
+  },
+  overflow: "hidden",
+  borderRadius: {
+    base: "xl",
+    lg: "2xl",
+  },
+  boxShadow: "2xl",
+  objectFit: "cover",
+});
 
 const page = css({
   height: "lvh",
@@ -72,6 +94,46 @@ export default async function Page() {
           ]}
         />
       </Center>
+
+      <Center className={page} bgColor="custom.100mph">
+        <VStack>
+          <Square className={square}>
+            <Image
+              src="/photography/city-of-london/DSC03819.jpg"
+              width="1694"
+              height="1368"
+              alt="If you see this sign roaming the back streets of St. Paul's, drop by for a cuppa."
+            />
+          </Square>
+          <Link href="/capturing/city-of-london">
+            <styled.h2 fontFamily="albertus" color="offwhite">
+              City of London
+            </styled.h2>
+          </Link>
+        </VStack>
+      </Center>
+
+      {/* <Center
+        h="lvh"
+        bgColor="offwhite.700"
+        scrollSnapAlign="start"
+        scrollSnapStop="always"
+      >
+        <VStack>
+          <Square className={square}>
+            <Image
+              src="/photography/city-of-london/DSC03819.jpg"
+              width="1694"
+              height="1368"
+              alt="Taking a photo of myself in a spherical mirror at the Tom Dixon store in Kings Cross Coal Drops Yard."
+              
+            />
+          </Square>
+          <styled.h2 fontFamily="futura" color="offblack.600">
+            Iceland
+          </styled.h2>
+        </VStack>
+      </Center> */}
     </Box>
   );
 }
