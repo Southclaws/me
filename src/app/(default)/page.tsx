@@ -104,6 +104,21 @@ export default async function Home() {
               Europe.
             </p>
           </Card>
+
+          <Card
+            title="Snapping"
+            image="/photography/2019-09-21 spherical.jpg"
+            verb="capturing"
+            layout="left"
+          >
+            <p>Every now and then I take a photo.</p>
+            <p>Here are some of the better ones.</p>
+            <p>
+              I don&apos;t really use Insta/500px/etc. as I find part of the fun
+              is arranging digital photo books with some colour, design and
+              typography!
+            </p>
+          </Card>
         </VStack>
       </header>
 
