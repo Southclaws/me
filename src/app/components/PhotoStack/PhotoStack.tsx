@@ -75,6 +75,7 @@ export function PhotoStack({ photos }: Props) {
             onClick={cycle}
           >
             <Image
+              fetchPriority={i === 0 ? "auto" : "low"}
               className={square}
               src={p.src}
               width={p.width}

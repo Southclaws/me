@@ -22,11 +22,15 @@ import { GLTFLoader } from "three/examples/jsm/Addons.js";
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 
-export function Camera3D() {
+type Props = {
+  onProgress: (event: ProgressEvent<EventTarget>) => void;
+};
+
+export function Camera3D(props: Props) {
   return (
     <Canvas>
       <Physics gravity={[0, -9.81, 0]}>
-        <Band />
+        <Band {...props} />
       </Physics>
 
       <Environment background blur={0.75}>
@@ -57,8 +61,13 @@ export function Camera3D() {
   );
 }
 
-function Band() {
-  const cameraMesh = useLoader(GLTFLoader, "/sonya7sii.glb");
+function Band(props: Props) {
+  const cameraMesh = useLoader(
+    GLTFLoader,
+    "/sonya7sii.glb",
+    undefined,
+    props.onProgress
+  );
 
   // References for the band and the joints
   const band = useRef<any>(null);
@@ -124,7 +133,7 @@ function Band() {
     rot.copy(camera.current.rotation());
     camera.current.setAngvel({
       x: ang.x,
-      y: ang.y - rot.y * 0.25,
+      y: ang.y - rot.y * 0.25 - 0.05,
       // NOTE: This fixes a weird issue with the colmesh importing offset
       // resulting in the physics being a bit weird as the centre of gravity is
       // in the wrong place which makes the camera hang unrealistically, I
