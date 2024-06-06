@@ -4,7 +4,6 @@ import { createReadStream } from "fs";
 import Image from "next/image";
 import path from "path";
 import probe from "probe-image-size";
-import "./page.css";
 
 const paths = [
   "/photography/city-of-london/DSC03773.jpg",
