@@ -201,7 +201,7 @@ export default function Page() {
                 <Square className={square}>
                   <Image
                     fetchPriority="low"
-                    src="/photography/city-of-london/DSC03819.jpg"
+                    src="/photography/city-of-london/carters-halt.jpg"
                     width="1694"
                     height="1368"
                     alt="If you see this sign roaming the back streets of St. Paul's, drop by for a cuppa."
@@ -214,27 +214,24 @@ export default function Page() {
             </VStack>
           </Center>
 
-          {/* <Center
-        h="lvh"
-        bgColor="offwhite.700"
-        scrollSnapAlign="start"
-        scrollSnapStop="always"
-      >
-        <VStack>
-          <Square className={square}>
-            <Image
-              src="/photography/city-of-london/DSC03819.jpg"
-              width="1694"
-              height="1368"
-              alt="Taking a photo of myself in a spherical mirror at the Tom Dixon store in Kings Cross Coal Drops Yard."
-              
-            />
-          </Square>
-          <styled.h2 fontFamily="futura" color="offblack.600">
-            Iceland
-          </styled.h2>
-        </VStack>
-      </Center> */}
+          <Center className={page} bgColor="offwhite">
+            <VStack>
+              <Link href="/capturing/iceland">
+                <Square className={square}>
+                  <Image
+                    fetchPriority="low"
+                    src="/photography/iceland/far-from-home.jpg"
+                    width="1694"
+                    height="1368"
+                    alt="A sunset in Iceland."
+                  />
+                </Square>
+                <styled.h2 fontFamily="futura" color="offblack">
+                  Iceland
+                </styled.h2>
+              </Link>
+            </VStack>
+          </Center>
         </>
       )}
     </Box>

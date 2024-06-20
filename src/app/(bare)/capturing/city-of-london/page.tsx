@@ -1,78 +1,33 @@
-import { css } from "@/styled-system/css";
-import { Box, Center, Grid } from "@/styled-system/jsx";
-import { createReadStream } from "fs";
-import Image from "next/image";
-import path from "path";
-import probe from "probe-image-size";
+import { Bricklay } from "@/components/photos/Bricklay";
+import { Photograph } from "@/components/photos/Photograph";
+import { getImages } from "@/components/photos/loader";
+import { Box } from "@/styled-system/jsx";
 
 const paths = [
-  "/photography/city-of-london/DSC03773.jpg",
-  "/photography/city-of-london/DSC03604.jpg",
-  "/photography/city-of-london/DSC03774.jpg",
-  "/photography/city-of-london/DSC03671.jpg",
-  "/photography/city-of-london/DSC03672.jpg",
-  "/photography/city-of-london/DSC03775.jpg",
-  "/photography/city-of-london/DSC03777.jpg",
-  "/photography/city-of-london/DSC03779.jpg",
-  "/photography/city-of-london/DSC03780.jpg",
-  "/photography/city-of-london/DSC03781.jpg",
-  "/photography/city-of-london/DSC03784.jpg",
-  "/photography/city-of-london/DSC03785.jpg",
-  "/photography/city-of-london/DSC03793.jpg",
-  "/photography/city-of-london/DSC03819.jpg",
+  "/photography/city-of-london/carters-halt.jpg",
+  "/photography/city-of-london/concrete-shapes.jpg",
+  "/photography/city-of-london/30.jpg",
+  "/photography/city-of-london/evening-angle.jpg",
+  "/photography/city-of-london/tunnel.jpg",
+  "/photography/city-of-london/money.jpg",
+  "/photography/city-of-london/spring.jpg",
+  "/photography/city-of-london/boxes.jpg",
+  "/photography/city-of-london/paul.jpg",
+  "/photography/city-of-london/found.jpg",
+  "/photography/city-of-london/glow.jpg",
+  "/photography/city-of-london/late-night-at-the-office.jpg",
 ];
 
-const image = css({
-  height: "auto",
-  width: "auto",
-  maxHeight: "lvh",
-  zIndex: 1,
-});
-
-const backdrop = css({
-  blur: "xl",
-  opacity: 0.1,
-  filter: "auto",
-  zIndex: 0,
-  gridRow: "1/1",
-  gridColumn: "1/1",
-});
-
-const page = css({
-  height: "lvh",
-  scrollSnapAlign: "start",
-  scrollSnapStop: "always",
-});
-
 export default async function Page() {
-  const images = await Promise.all(
-    paths.map(async (p) => {
-      const filepath = path.join(process.cwd(), "public", p);
-      const of = createReadStream(filepath);
-      const metadata = await probe(of);
-      return { ...metadata, path: p };
-    })
-  );
+  const images = await getImages(paths);
 
   return (
     <Box minH="dvh">
       {images.map((i) => (
-        <Grid key={i.path} gridTemplateRows="1" gridTemplateColumns="1">
-          <Box position="relative" gridRow="1/1" gridColumn="1/1">
-            <Image className={backdrop} src={i.path} fill alt="" />
-          </Box>
-
-          <Center className={page} gridRow="1/1" gridColumn="1/1">
-            <Image
-              className={image}
-              src={i.path}
-              width={i.width}
-              height={i.height}
-              alt=""
-            />
-          </Center>
-        </Grid>
+        <Photograph key={i.path} photo={i} />
       ))}
+
+      <Bricklay images={images} />
     </Box>
   );
 }
