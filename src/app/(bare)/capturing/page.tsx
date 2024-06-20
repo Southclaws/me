@@ -73,7 +73,7 @@ export default function Page() {
             Capturing
           </styled.h1>
           <styled.h2 fontFamily="futura" color="offwhite" fontSize="lg">
-            the mosaic of life
+            a small collection of the good(ish) ones.
           </styled.h2>
           {showProgress && <p>loading {progress.toFixed(0)}%</p>}
         </VStack>
