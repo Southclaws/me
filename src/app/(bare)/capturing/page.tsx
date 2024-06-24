@@ -45,7 +45,7 @@ const backdrop = css({
 
 export default function Page() {
   const [progress, setProgress] = useState(0);
-  const [ready, setReady] = useState(false);
+  const [ready, setReady] = useState(true);
   function handleProgress(event: ProgressEvent<EventTarget>) {
     setProgress(event.loaded / 7093000);
 
