@@ -133,13 +133,8 @@ function Band(props: Props) {
     rot.copy(camera.current.rotation());
     camera.current.setAngvel({
       x: ang.x,
-      y: ang.y - rot.y * 0.25 - 0.05,
-      // NOTE: This fixes a weird issue with the colmesh importing offset
-      // resulting in the physics being a bit weird as the centre of gravity is
-      // in the wrong place which makes the camera hang unrealistically, I
-      // couldn't figure out what was causing it so this little nudge in the Z
-      // rot just pushes it to the "correct" rotation visually speaking...
-      z: ang.z + rot.z * 0.25,
+      y: ang.y,
+      z: ang.z,
     });
   });
 

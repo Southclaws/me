@@ -1,4 +1,4 @@
-import { Photograph } from "@/components/photos/loader";
+import { Photograph as PhotoType } from "@/components/photos/loader";
 import { css } from "@/styled-system/css";
 import { Box, Center, Grid } from "@/styled-system/jsx";
 import Image from "next/image";
@@ -26,7 +26,7 @@ const page = css({
 });
 
 type Props = {
-  photo: Photograph;
+  photo: PhotoType;
 };
 
 export function Photograph({ photo }: Props) {
