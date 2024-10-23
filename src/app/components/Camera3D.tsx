@@ -128,14 +128,14 @@ function Band(props: Props) {
     curve.points[3].copy(fixed.current.translation());
     band.current.geometry.setPoints(curve.getPoints(32));
 
-    // Tilt the camera back towards the screen
-    ang.copy(camera.current.angvel());
-    rot.copy(camera.current.rotation());
-    camera.current.setAngvel({
-      x: ang.x,
-      y: ang.y,
-      z: ang.z,
-    });
+    // // Tilt the camera back towards the screen
+    // ang.copy(camera.current.angvel());
+    // rot.copy(camera.current.rotation());
+    // camera.current.setAngvel({
+    //   x: ang.x,
+    //   y: ang.y,
+    //   z: ang.z,
+    // });
   });
 
   const damping = {
