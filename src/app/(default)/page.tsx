@@ -57,7 +57,7 @@ export default async function Home() {
         <VStack py="16" gap="4">
           <Card
             title="Storyden"
-            image="https://www.storyden.org/social-1280-640.png"
+            image="https://www.storyden.org/opengraph-1280-640.png"
             url="https://www.storyden.org/"
             verb="building"
             noun="storyden"
