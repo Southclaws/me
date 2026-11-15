@@ -40,7 +40,7 @@ const Experience = () => (
       title="Founding Engineer"
       company="Odin"
       location="London"
-      dates="Nov 2021 - Present"
+      dates="Nov 2021 - Sep 2024"
       skills="Full stack development, critical infrastructure, devops processes, hiring, leadership, user research and product work"
     >
       <ul>
