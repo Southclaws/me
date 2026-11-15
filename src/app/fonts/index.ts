@@ -18,18 +18,17 @@ export const orbiter = localFont({
   variable: "--font-orbiter",
 });
 
-// Body copy is set in Inter Display Italic. These faces are deliberately
+// Body copy is set in Inter Display Italic. The face is deliberately
 // registered as the *normal* style: that is how the site has always rendered
-// (the previous 38-file declaration resolved to these faces), but now only the
-// two weights in use are shipped, subset to Latin/Latin Extended (~43KB each
-// instead of ~4MB of preloaded fonts).
+// (the previous 38-file declaration resolved to this face), but now a single
+// file is shipped, subset to Latin/Latin Extended (~43KB instead of ~4MB of
+// preloaded fonts). Only the regular weight is included: bold Inter appears
+// in a single <strong> on /typography, which the browser emboldens itself,
+// and every extra face would be preloaded on every page.
 //
-// For upright Inter instead, swap these for InterDisplay-Regular/-Bold.
+// For upright Inter instead, swap this for InterDisplay-Regular.
 export const inter = localFont({
-  src: [
-    { path: "./static/web/InterDisplay-Italic.woff2", weight: "400" },
-    { path: "./static/web/InterDisplay-BoldItalic.woff2", weight: "700" },
-  ],
+  src: [{ path: "./static/web/InterDisplay-Italic.woff2", weight: "400" }],
   preload: true,
   variable: "--font-inter",
 });
