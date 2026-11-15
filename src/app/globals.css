@@ -1,8 +1,8 @@
 @layer reset, base, tokens, recipes, utilities;
 
 html {
+  color-scheme: light dark;
   min-height: 100dvh;
-  min-height: -webkit-fill-available;
   background-color: var(--colors-bg);
   color: var(--colors-fg);
 
@@ -10,9 +10,22 @@ html {
   scroll-snap-type: both mandatory;
 }
 
+/* The /capturing page is staged on black (behind its 3D backdrop), so the
+   root canvas matches it: no off-white flash or overscroll, and the light text
+   is measured against the colour actually behind it. */
+html:has(main[data-stage="dark"]) {
+  background-color: black;
+  color-scheme: dark;
+}
+
 @layer base {
+  /* Only colour changes are transitioned globally: layout properties stay
+     instant (no animated reflow / layout shift) and transforms are opted
+     into per component, respecting reduced-motion preferences. */
   * {
-    transition: all 0.2s;
+    transition-property: color, background-color, border-color,
+      text-decoration-color, fill, stroke, opacity;
+    transition-duration: 0.2s;
   }
 
   h1 {
@@ -97,6 +110,17 @@ html {
   a:hover {
     color: var(--colors-link-hover);
     text-decoration: underline;
+  }
+
+  /* Links inside running text need a non-colour cue (WCAG 1.4.1). */
+  :is(p, li, dd, blockquote) a {
+    text-decoration: underline;
+    text-decoration-thickness: from-font;
+    text-underline-offset: 0.15em;
+    text-decoration-color: color-mix(in oklab, currentColor 45%, transparent);
+  }
+  :is(p, li, dd, blockquote) a:hover {
+    text-decoration-color: currentColor;
   }
 
   ul {

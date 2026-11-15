@@ -1,7 +1,8 @@
 import { Bricklay } from "@/components/photos/Bricklay";
 import { Photograph } from "@/components/photos/Photograph";
 import { getImages } from "@/components/photos/loader";
-import { Box } from "@/styled-system/jsx";
+import { styled } from "@/styled-system/jsx";
+import { Metadata } from "next";
 
 const paths = [
   "/photography/iceland/telescope.jpg",
@@ -18,16 +19,21 @@ const paths = [
   "/photography/iceland/far-from-home.jpg",
 ];
 
+export const metadata: Metadata = {
+  title: "Iceland",
+  description: "A photobook of Iceland by Barney.",
+};
+
 export default async function Page() {
   const images = await getImages(paths);
 
   return (
-    <Box minH="dvh">
-      {images.map((i) => (
-        <Photograph key={i.path} photo={i} />
+    <styled.main minH="dvh">
+      {images.map((i, index) => (
+        <Photograph key={i.path} photo={i} eager={index === 0} />
       ))}
 
       <Bricklay images={images} />
-    </Box>
+    </styled.main>
   );
 }

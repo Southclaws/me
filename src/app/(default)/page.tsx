@@ -62,6 +62,7 @@ export default async function Home() {
             verb="building"
             noun="storyden"
             layout="left"
+            eager
           >
             <p>
               A social knowledgebase platform for collecting, curating and

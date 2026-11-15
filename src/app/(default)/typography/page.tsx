@@ -1,9 +1,9 @@
-import { styled, Box, HStack } from "@/styled-system/jsx";
+import { Box, HStack, styled } from "@/styled-system/jsx";
 import Link from "next/link";
 
 export default async function Page() {
   return (
-    <Box margin="auto" maxW="prose">
+    <styled.main margin="auto" maxW="prose">
       <HStack gap="0" py="4">
         <Box width="8" height="8" bgColor="accent.50" />
         <Box width="8" height="8" bgColor="accent.100" />
@@ -63,6 +63,6 @@ export default async function Page() {
         anyway, rambling, how did you even end up here?{" "}
         <Link href="/">go back to the home page already!</Link>
       </p>
-    </Box>
+    </styled.main>
   );
 }

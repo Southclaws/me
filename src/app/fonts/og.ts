@@ -1,14 +1,12 @@
-export const orbiterBold = () =>
-  fetch(new URL("./static/TASAOrbiterDisplay-Bold.otf", import.meta.url)).then(
-    (res) => res.arrayBuffer()
-  );
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 
-export const orbiterMedium = () =>
-  fetch(
-    new URL("./static/TASAOrbiterDisplay-Medium.otf", import.meta.url)
-  ).then((res) => res.arrayBuffer());
+const dir = join(process.cwd(), "src/app/fonts/static");
 
-export const interMedium = () =>
-  fetch(new URL("./static/Inter-Medium.woff2", import.meta.url)).then((res) =>
-    res.arrayBuffer()
-  );
+const load = (file: string) => readFile(join(dir, file));
+
+export const orbiterBold = () => load("TASAOrbiterDisplay-Bold.otf");
+
+export const orbiterMedium = () => load("TASAOrbiterDisplay-Medium.otf");
+
+export const interMedium = () => load("Inter-Medium.woff2");

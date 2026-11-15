@@ -5,6 +5,7 @@ import { HStack, VStack, styled } from "@/styled-system/jsx";
 import Image from "next/image";
 
 import "./global.css";
+import { PrintButton } from "./PrintButton";
 
 export const metadata = {
   title: "My curriculum vitae",
@@ -266,12 +267,7 @@ export default function Page() {
           >
             Note:
           </styled.span>{" "}
-          <span
-            // React will block javascript: URLs as a security precaution.
-            dangerouslySetInnerHTML={{
-              __html: `<a href="javascript:window.print()">Print this page</a>`,
-            }}
-          />{" "}
+          <PrintButton />{" "}
           for a printer-friendly or PDF version of my curriculum vitae.
         </styled.aside>
 
