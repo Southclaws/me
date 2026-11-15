@@ -23,7 +23,6 @@ type Props = ComponentProps<"img"> & {
 // explicit dimensions (no layout shift).
 export async function MarkdownImage({ src, alt = "", eager }: Props) {
   if (typeof src !== "string" || !src.startsWith("/")) {
-    // eslint-disable-next-line @next/next/no-img-element
     return <img src={src as string} alt={alt} loading="lazy" />;
   }
 
