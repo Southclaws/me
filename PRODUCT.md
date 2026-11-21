@@ -21,15 +21,16 @@ A credible, accurate, and currently up-to-date professional presence. If someone
 ## Operating Context
 
 - The home page is the entry point for most visitors: a short bio, then "what barney.is doing" (current projects as cards linking out to their own sites).
-- `/building` expands on current and past projects with fuller descriptions, split into "Current projects" and "Past projects" sections.
+- Every other URL is a sentence that starts with "barney is" (`/building/storyden`, `/back-from/iceland`, `/a/gym-rat`). A graph of dated facts (`src/graph/`) decides what each sentence means and corrects outdated claims. Each node gets its own hand-built design (`src/designs/`) or, until it has one, a generated layout. There is no shared page template, by design.
+- `/building` lists what's currently being built. It's driven by the graph, so things drop off when they end. Old projects are deliberately not listed anywhere except the CV.
 - `/capturing` is a standalone photography showcase (e.g. Iceland, City of London galleries), visually separate from the rest of the site (bare layout, no shared header/footer).
-- `/cv` is a full, printable curriculum vitae (has its own print button) used for both advisory-conversation and recruiter audiences.
+- `/experienced` ("barney is experienced") is the full, printable curriculum vitae, with its own print button. `/cv` redirects there. The site is deliberately less focused on work; the CV is the one place for employment history, and will be reworded to be more minimal.
 - `/typography` is an internal type-scale test page, not meant for general visitors.
 - Project cards on the home page and `/building` page link out to the actual live product (e.g. storyden.org, deployferry.io) rather than hosting the pitch itself.
 
 ## Capabilities and Constraints
 
-- Next.js (App Router) + Panda CSS site, MDX-driven content for the `/building` pages, static/SSG where possible.
+- Next.js (App Router) + Panda CSS site. No MDX: page content lives in per-node React designs. Static/SSG where possible, with daily revalidation so tenses move on their own.
 - Project card images are hosted locally in `public/building/` rather than hotlinked — a prior external image (storyden.org's old og:image) 404'd, and another (a Behance/CloudFront asset) failed to load on networks using NAT64, so hotlinking third-party CDNs was dropped project-wide for card art.
 - CV content must stay factually current (dates, titles) even when kept intentionally vague on specifics.
 
@@ -51,5 +52,6 @@ A credible, accurate, and currently up-to-date professional presence. If someone
 - Accuracy and currency over polish or persuasion — the site should never say something false or stale about what Barney is doing now.
 - No hard calls-to-action; the site presents, it doesn't sell.
 - One understated, lowercase, personal voice throughout, not a corporate pitch register.
+- Every URL reads as a true sentence about barney. If it's no longer true, the page says so rather than 404ing.
 - Serve all four audiences (clients, recruiters, peers, project-followers) from the same content rather than segmenting or specializing the experience per audience.
 - Prefer self-hosting real assets (images, content) over depending on third-party sites staying up or stable.

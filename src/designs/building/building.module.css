@@ -1,0 +1,151 @@
+.page {
+  min-height: 100dvh;
+  padding: clamp(16px, 4vw, 64px);
+  background: var(--colors-bg);
+  color: var(--colors-fg);
+  overflow-x: clip;
+}
+
+.nav {
+  font-family: var(--font-orbiter);
+  font-weight: 700;
+}
+
+.nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.title {
+  margin: clamp(48px, 12vh, 160px) 0 12px;
+  font-family: var(--font-orbiter);
+  font-weight: 800;
+  font-size: clamp(2.8rem, 9vw, 8rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+
+.title em {
+  font-style: normal;
+  color: var(--colors-link);
+}
+
+.sub {
+  max-width: 44ch;
+  color: var(--colors-fg-muted);
+  font-size: 1.1rem;
+  margin: 0 0 clamp(32px, 8vh, 96px);
+}
+
+.rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: none;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 3ch minmax(0, 1fr);
+  gap: 8px 24px;
+  padding-block: clamp(20px, 4vh, 40px);
+  border-top: 2px solid var(--colors-fg);
+  align-items: start;
+}
+
+.row:last-child {
+  border-bottom: 2px solid var(--colors-fg);
+}
+
+@media (min-width: 768px) {
+  .row {
+    grid-template-columns: 4ch minmax(0, 1fr) 280px;
+  }
+}
+
+.index {
+  font-family: var(--font-orbiter);
+  font-weight: 700;
+  color: var(--colors-fg-muted);
+  padding-top: 0.6em;
+}
+
+.body {
+  display: grid;
+  gap: 8px;
+}
+
+.name {
+  margin: 0;
+  font-family: var(--font-orbiter);
+  font-weight: 800;
+  font-size: clamp(2.4rem, 8vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  overflow-wrap: anywhere;
+}
+
+.name a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .name a {
+    transition: letter-spacing 0.3s;
+  }
+  .row:hover .name a {
+    letter-spacing: 0;
+  }
+}
+
+.row:hover .name a {
+  color: var(--colors-link);
+}
+
+.blurb {
+  margin: 0;
+  max-width: 48ch;
+  line-height: 1.5;
+}
+
+.meta {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.9rem;
+  color: var(--colors-fg-muted);
+}
+
+.meta a {
+  color: var(--colors-link);
+}
+
+.thumb {
+  position: relative;
+  grid-column: 2;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--colors-bg-opaque);
+}
+
+@media (min-width: 768px) {
+  .thumb {
+    grid-column: 3;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .thumb {
+    transition: transform 0.4s;
+  }
+  .row:hover .thumb {
+    transform: rotate(-2deg) scale(1.03);
+  }
+}
+
+.img {
+  object-fit: cover;
+}

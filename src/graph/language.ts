@@ -3,7 +3,7 @@
 // Adding a predicate gives its facts every applicable frame. Adding a frame
 // adds that phrasing to every fact. That's how this scales.
 
-import type { Frame, Predicate } from "./types.mts";
+import type { Frame, Predicate } from "./types.ts";
 
 const ING = { slot: "ING" } as const;
 const BASE = { slot: "BASE" } as const;

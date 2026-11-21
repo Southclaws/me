@@ -1,12 +1,12 @@
 // Try the resolver from the command line.
 //
-//   node docs/barney-is/try.mts                          # demo: a tour of URLs
-//   node docs/barney-is/try.mts no-longer/building/odin  # resolve specific paths
-//   node docs/barney-is/try.mts building/storyden --at=2019-06
-//   node docs/barney-is/try.mts --report                 # stats, canonical URLs, TODOs
-//   node docs/barney-is/try.mts --all                    # every generated URL
+//   node src/graph/cli.ts                          # demo: a tour of URLs
+//   node src/graph/cli.ts no-longer/building/odin  # resolve specific paths
+//   node src/graph/cli.ts building/storyden --at=2019-06
+//   node src/graph/cli.ts --report                 # stats, canonical URLs, TODOs
+//   node src/graph/cli.ts --all                    # every generated URL
 
-import { allPaths, report, resolve, type Resolution } from "./compile.mts";
+import { allPaths, report, resolve, type Resolution } from "./compile.ts";
 
 const args = process.argv.slice(2);
 const atArg = args.find((a) => a.startsWith("--at="));
@@ -24,12 +24,12 @@ function show(r: Resolution) {
       break;
     case "entity":
       console.log(`◎ ${head}   (entity: ${r.entityId})`);
-      r.sentences.forEach((s) => console.log(`    · ${s}`));
+      r.items.forEach((i) => console.log(`    · ${i.sentence}   /${i.path}`));
       break;
     case "collection":
       console.log(`☰ ${head}   ${r.label}`);
-      r.sentences.forEach((s) => console.log(`    · ${s}`));
-      if (!r.sentences.length) console.log("    (nothing right now)");
+      r.items.forEach((i) => console.log(`    · ${i.sentence}   /${i.path}`));
+      if (!r.items.length) console.log("    (nothing right now)");
       break;
     case "not-found":
       console.log(`? ${head}   not a thing (yet). did you mean: ${r.suggestions.map((s) => "/" + s).join(", ")}`);
@@ -38,30 +38,19 @@ function show(r: Resolution) {
 }
 
 const tour = [
+  "building",
   "building/storyden",
   "still/building/storyden",
-  "a/founding-engineer-at/odin",
-  "a/former/software-engineer-at/utility-warehouse",
-  "no-longer/working-at/metomic",
-  "was/working-at/metomic",
-  "working-at/metomic",
-  "believed-to-have/founded/novaura",
-  "the-one-who/designed/vapourlish",
-  "a/graduate-of/nottingham-trent",
+  "a/head-of-engineering-at/ferry",
+  "no-longer/building/ferry",
   "back-from/iceland",
-  "in/iceland",
   "capturing/iceland",
-  "capturing/city-of-london",
   "yet-to/visit/every-country",
-  "dreaming-of/visiting/every-country",
   "from/england",
-  "based-in/london",
   "a/gym-rat",
   "building/barney-is",
-  "looking-back-on/odin",
-  "with/paddy-ryan",
-  "no-longer",
-  "a/former",
+  "reminiscing",
+  "up-to",
   "skydiving",
 ];
 

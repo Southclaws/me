@@ -42,7 +42,7 @@ export default async function Home() {
 
         <BioParagraph>
           I love helping advise early stage companies in their product and
-          technical strategy, my <Link href="/cv">curriculum vitae</Link> is
+          technical strategy, my <Link href="/experienced">curriculum vitae</Link> is
           available if you want to know more.
         </BioParagraph>
 

@@ -6,12 +6,12 @@
 //   - the same keys feed generateStaticParams, so every sentence is pre-rendered
 //   - unknown URLs get "did you mean…" suggestions from the same keys
 
-import type { Entity, Fact, Frame, PartialDate, Slot, State, Token } from "./types.mts";
-import { entities, facts, roles } from "./graph.mts";
-import { defaultCanonical, frames, predicates } from "./language.mts";
+import type { Entity, Fact, Frame, PartialDate, Slot, State, Token } from "./types.ts";
+import { entities, facts, roles } from "./graph.ts";
+import { defaultCanonical, frames, predicates } from "./language.ts";
 
 type EntityRecord = Entity;
-const entity = (id: string) => (entities as Record<string, EntityRecord>)[id];
+export const entity = (id: string) => (entities as Record<string, EntityRecord>)[id];
 const role = (id: string) => (roles as Record<string, { prep: string; persists?: boolean; article?: "a" | "an" }>)[id];
 
 // ── time ──────────────────────────────────────────────────────────────────
@@ -142,6 +142,7 @@ export function compile() {
   const index = new Map<string, Entry[]>();
   const collections = new Map<string, Collection>();
   const canonicalByFactFrame = new Map<string, string>();
+  const phrasings = new Map<string, { path: string; frameId: string }[]>();
 
   const add = (path: string, e: Entry) => {
     const list = index.get(path) ?? [];
@@ -163,7 +164,10 @@ export function compile() {
       paths.forEach((segments, i) => {
         const path = segments.join("/");
         if (frame.target === "entity") add(path, { kind: "entity", entityId: fact.object, frameId: frame.id });
-        else add(path, { kind: "fact", factId: fact.id, frameId: frame.id });
+        else {
+          add(path, { kind: "fact", factId: fact.id, frameId: frame.id });
+          phrasings.set(fact.id, [...(phrasings.get(fact.id) ?? []), { path, frameId: frame.id }]);
+        }
         if (i === 0) canonicalByFactFrame.set(`${fact.id}:${frame.id}`, path);
         // Every proper prefix is a collection: /building, /no-longer, /a/former …
         for (let n = 1; n < segments.length; n++) collect(segments.slice(0, n).join("/"), fact.id, frame.id);
@@ -194,7 +198,7 @@ export function compile() {
   // Exact sentences win over collections that share a path.
   for (const path of index.keys()) collections.delete(path);
 
-  return { index, collections, canonicalByFactFrame };
+  return { index, collections, canonicalByFactFrame, phrasings };
 }
 
 // ── resolution and rendering ──────────────────────────────────────────────
@@ -254,6 +258,9 @@ function copulaFor(ref: Date, now: Date) {
 /** Sort key: the most recent known date of a fact ("unknown" sorts last). */
 const when = (f: Fact) => (f.end && f.end !== "unknown" ? f.end : f.start ?? "");
 
+/** A fact as it appears in a list: its sentence at the reference time and where it lives. */
+export type Item = { fact: Fact; sentence: string; path: string; state: State };
+
 export type Resolution =
   | {
       kind: "fact";
@@ -267,8 +274,8 @@ export type Resolution =
       gloss?: string;
       canonical: string;
     }
-  | { kind: "entity"; path: string; entityId: string; frame: Frame; sentences: string[] }
-  | { kind: "collection"; path: string; label: string; sentences: string[] }
+  | { kind: "entity"; path: string; entityId: string; frame: Frame; items: Item[] }
+  | { kind: "collection"; path: string; label: string; items: Item[] }
   | { kind: "not-found"; path: string; suggestions: string[] };
 
 export function resolve(rawPath: string, opts: { at?: Date; now?: Date } = {}): Resolution {
@@ -296,13 +303,7 @@ export function resolve(rawPath: string, opts: { at?: Date; now?: Date } = {}): 
 
     if (top.kind === "entity") {
       const related = facts.filter((f) => f.object === top.entityId || f.with?.includes(top.entityId as never));
-      return {
-        kind: "entity",
-        path,
-        entityId: top.entityId,
-        frame,
-        sentences: related.map((f) => sentence(f, frames.find((x) => x.id === canonicalFrameId(f, stateOf(f, ref)))!, cop)),
-      };
+      return { kind: "entity", path, entityId: top.entityId, frame, items: related.map((f) => item(f, ref, cop, now)) };
     }
 
     const fact = ranked[0].fact!;
@@ -363,11 +364,48 @@ export function resolve(rawPath: string, opts: { at?: Date; now?: Date } = {}): 
       kind: "collection",
       path,
       label: `barney ${cop} ${c.label}…`,
-      sentences: live.map((f) => sentence(f, phrase(f), cop)),
+      items: live.map((f) => ({ ...item(f, ref, cop, now), sentence: sentence(f, phrase(f), cop) })),
     };
   }
 
   return { kind: "not-found", path, suggestions: suggest(path) };
+}
+
+function item(f: Fact, ref: Date, cop: string, now: Date): Item {
+  const state = stateOf(f, ref);
+  return {
+    fact: f,
+    state,
+    sentence: sentence(f, frames.find((x) => x.id === canonicalFrameId(f, state))!, cop),
+    path: canonicalPath(f, now),
+  };
+}
+
+/** Every phrasing of a fact that is true at the reference time. */
+export function phrasingsOf(factId: string, ref = new Date()): string[] {
+  const fact = facts.find((f) => f.id === factId);
+  if (!fact) return [];
+  const state = stateOf(fact, ref);
+  const timeless = predicates[fact.predicate].timeless;
+  return (compiled.phrasings.get(factId) ?? [])
+    .filter(({ frameId }) => timeless || frames.find((f) => f.id === frameId)!.when.includes(state))
+    .map(({ path }) => path);
+}
+
+/** Other facts about the same object, e.g. visiting iceland and capturing iceland. */
+export function relatedTo(fact: Fact, ref = new Date()): Item[] {
+  return facts.filter((f) => f.id !== fact.id && f.object === fact.object).map((f) => item(f, ref, "is", ref));
+}
+
+/** What to pre-render: each fact's canonical path now, plus every collection. Aliases render on demand. */
+export function prerenderPaths(now = new Date()): string[] {
+  return [...new Set([...facts.map((f) => canonicalPath(f, now)), ...compiled.collections.keys()])];
+}
+
+/** Canonical paths only, for the sitemap. */
+export function sitemapPaths(now = new Date()): string[] {
+  const hubs = ["reminiscing", "up-to", "plotting", "building"];
+  return [...new Set([...facts.map((f) => canonicalPath(f, now)), ...hubs])];
 }
 
 // ── 404 suggestions ───────────────────────────────────────────────────────
@@ -381,9 +419,13 @@ function distance(a: string, b: string): number {
   return dp[a.length][b.length];
 }
 
-function suggest(path: string, n = 3): string[] {
-  return [...compiled.index.keys(), ...compiled.collections.keys()]
-    .map((k) => [k, distance(path, k)] as const)
+export function suggest(path: string, n = 3): string[] {
+  // Compare against the things worth suggesting (canonical sentences, hubs and
+  // one-word collections like /building), scored by edit distance relative to
+  // length, so short paths like /in don't win every time.
+  const candidates = new Set([...sitemapPaths(), ...[...compiled.collections.keys()].filter((k) => !k.includes("/") && k.length > 3)]);
+  return [...candidates]
+    .map((k) => [k, distance(path, k) / Math.max(path.length, k.length)] as const)
     .sort((a, b) => a[1] - b[1])
     .slice(0, n)
     .map(([k]) => k);

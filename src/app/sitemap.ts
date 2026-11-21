@@ -1,21 +1,19 @@
-import { listContent } from "@/content/content";
+import { sitemapPaths } from "@/graph/compile.ts";
 import type { MetadataRoute } from "next";
 
 const base = "https://barney.is";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const content = await listContent();
-
   const pages = [
     "/",
-    "/cv",
+    "/experienced",
     "/capturing",
     "/capturing/city-of-london",
     "/capturing/iceland",
-    ...content.map(({ verb, noun }) =>
-      noun === "index" ? `/${verb}` : `/${verb}/${noun}`
-    ),
+    // One canonical phrasing per graph fact, plus the hubs. Aliases point
+    // their rel=canonical here, so they stay out.
+    ...sitemapPaths().map((p) => `/${p}`),
   ];
 
-  return pages.map((path) => ({ url: new URL(path, base).href }));
+  return [...new Set(pages)].map((path) => ({ url: new URL(path, base).href }));
 }

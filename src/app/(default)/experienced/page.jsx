@@ -8,7 +8,7 @@ import "./global.css";
 import { PrintButton } from "./PrintButton";
 
 export const metadata = {
-  title: "My curriculum vitae",
+  title: { absolute: "barney is experienced" },
   description:
     "As a passionate and enthusiastic lover of all things electronic, mechanical and visual; I have always shown deep interest how we experience technology. I'm a multidisciplinary leader with a truly full-stack experience all the way from the cloud configuration to the customer experience, with everything in between.",
 };
