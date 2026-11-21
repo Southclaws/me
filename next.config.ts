@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "assets-global.website-files.com" },
       { protocol: "https", hostname: "scavengesurvive.com" },
       { protocol: "https", hostname: "mir-s3-cdn-cf.behance.net" },
+      { protocol: "https", hostname: "framerusercontent.com" },
     ],
   },
 };

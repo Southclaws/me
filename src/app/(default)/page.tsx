@@ -84,10 +84,11 @@ export default async function Home() {
 
           <Card
             title="Ferry"
-            image="/building/ferry.png"
+            image="https://framerusercontent.com/images/zXKzc9rl8D9vNNOkyWGK9LG66ks.png"
             url="https://www.deployferry.io/"
             verb="building"
             layout="right"
+            objectPosition="right"
           >
             <p>Ferry is the applied AI laboratory for industrial operations.</p>
             <p>It&apos;s where I currently work.</p>

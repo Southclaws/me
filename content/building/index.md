@@ -17,7 +17,7 @@ Storyden is inspired by bulletin boards of the retro web but under a fresh coat 
 Powered by artificial intelligence, a community can aggregate, organise and discuss their niche on the platform or without leaving their favourite apps such as WhatsApp, Discord, Slack and more.
 </Card>
 
-<Card title="Ferry" image="/building/ferry.png" url="https://www.deployferry.io/" verb="building" layout="right">
+<Card title="Ferry" image="https://framerusercontent.com/images/zXKzc9rl8D9vNNOkyWGK9LG66ks.png" url="https://www.deployferry.io/" verb="building" layout="right" objectPosition="right">
 
 Ferry is the applied AI laboratory for industrial operations.
 
