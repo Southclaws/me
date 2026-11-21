@@ -37,6 +37,30 @@ const Experience = () => (
     <h2>Experience</h2>
 
     <ExperienceItem
+      title="Head of Engineering & Forward Deployed Engineer"
+      company="Ferry"
+      dates="Nov 2024 - Present"
+      skills="Platform infrastructure, edge deployment, security and compliance systems, applied AI, leadership"
+    >
+      <ul>
+        <li>
+          Leading engineering at Ferry, the applied AI laboratory for
+          industrial operations, bringing frontier AI into physical,
+          real-world industrial environments.
+        </li>
+        <li>
+          Built the core platform infrastructure, edge deployment systems and
+          security tooling the product runs on in the field.
+        </li>
+        <li>
+          Split between leading the team and working as a forward deployed
+          engineer, getting hands-on with customers&apos; environments and
+          feeding what I learn straight back into the platform.
+        </li>
+      </ul>
+    </ExperienceItem>
+
+    <ExperienceItem
       title="Founding Engineer"
       company="Odin"
       location="London"
