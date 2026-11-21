@@ -9,7 +9,7 @@ I'm always making things, open source, micro-startups or just pet projects to ex
 
 ## Current projects
 
-<Card title="Storyden" image="https://www.storyden.org/social-1280-640.png" url="https://www.storyden.org/" verb="building" noun="storyden" layout="left">
+<Card title="Storyden" image="/building/storyden.png" url="https://www.storyden.org/" verb="building" noun="storyden" layout="left">
 A social knowledgebase platform for collecting, curating and sharing content.
 
 Storyden is inspired by bulletin boards of the retro web but under a fresh coat of paint.
@@ -17,7 +17,17 @@ Storyden is inspired by bulletin boards of the retro web but under a fresh coat 
 Powered by artificial intelligence, a community can aggregate, organise and discuss their niche on the platform or without leaving their favourite apps such as WhatsApp, Discord, Slack and more.
 </Card>
 
-<Card title="Odin" image="https://assets-global.website-files.com/6537e71aeecfbb6ef3c98e9e/654ce4cac9c7a74b4908c53a_mobile_home_image-min.webp" url="https://www.joinodin.com/" verb="building" layout="right" objectPosition="top">
+<Card title="Ferry" image="/building/ferry.png" url="https://www.deployferry.io/" verb="building" layout="right" objectPosition="right">
+
+Ferry is the applied AI laboratory for industrial operations.
+
+It's where I currently work.
+
+</Card>
+
+## Past projects
+
+<Card title="Odin" image="/building/odin.webp" url="https://www.joinodin.com/" layout="left" objectPosition="top">
 
 Odin is a platform for building a better future by making capital
 easier to deploy.
@@ -31,15 +41,13 @@ Europe.
 
 </Card>
 
-## Past projects
-
-<Card title="Scavenge & Survive" image="https://scavengesurvive.com/img/f3-survival.jpg" layout="left" objectPosition="center">
+<Card title="Scavenge & Survive" image="/building/scavenge-and-survive.jpg" layout="right" objectPosition="center">
 
 Scavenge and Survive was a PvP survival game where everyone is pitched against each other. Supplies are scarce and everyone is willing to kill for the same goals! Safety in numbers is key to survival, but trust is hard to find.
 
 </Card>
 
-<Card title="Vapourlish" image="https://mir-s3-cdn-cf.behance.net/project_modules/1400/1312a889853853.5e037599e5a3e.png" layout="right" objectPosition="right">
+<Card title="Vapourlish" image="/building/vapourlish.png" layout="left" objectPosition="right">
 
 A small but disruptive direct-to-consumer business in the vape industry. I worked closely with a great designer friend of mine to build their brand identity.
 

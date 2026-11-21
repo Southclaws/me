@@ -5,6 +5,7 @@ import { HStack, VStack, styled } from "@/styled-system/jsx";
 import Image from "next/image";
 
 import "./global.css";
+import { PrintButton } from "./PrintButton";
 
 export const metadata = {
   title: "My curriculum vitae",
@@ -36,10 +37,35 @@ const Experience = () => (
     <h2>Experience</h2>
 
     <ExperienceItem
+      title="Head of Engineering & Forward Deployed Engineer"
+      company="Ferry"
+      dates="Nov 2024 - Present"
+      skills="Platform infrastructure, edge deployment, security and compliance systems, applied AI, leadership"
+    >
+      <ul>
+        <li>
+          Leading engineering at Ferry, the applied AI laboratory for
+          industrial operations, bringing frontier AI into physical,
+          real-world industrial environments.
+        </li>
+        <li>
+          Built the core platform infrastructure, edge deployment systems and
+          security tooling the product runs on in the field.
+        </li>
+        <li>
+          Split between leading the team and working directly with
+          customers as a forward deployed engineer &mdash; on site,
+          understanding their operations first-hand and shaping the product
+          around what they actually need.
+        </li>
+      </ul>
+    </ExperienceItem>
+
+    <ExperienceItem
       title="Founding Engineer"
       company="Odin"
       location="London"
-      dates="Nov 2021 - Present"
+      dates="Nov 2021 - Sep 2024"
       skills="Full stack development, critical infrastructure, devops processes, hiring, leadership, user research and product work"
     >
       <ul>
@@ -266,12 +292,7 @@ export default function Page() {
           >
             Note:
           </styled.span>{" "}
-          <span
-            // React will block javascript: URLs as a security precaution.
-            dangerouslySetInnerHTML={{
-              __html: `<a href="javascript:window.print()">Print this page</a>`,
-            }}
-          />{" "}
+          <PrintButton />{" "}
           for a printer-friendly or PDF version of my curriculum vitae.
         </styled.aside>
 

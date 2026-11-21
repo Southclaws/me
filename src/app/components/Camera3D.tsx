@@ -17,20 +17,17 @@ import {
 } from "@react-three/rapier";
 import { MeshLineGeometry, MeshLineMaterial } from "meshline";
 import { useRef, useState } from "react";
+import type { RapierRigidBody } from "@react-three/rapier";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 
-type Props = {
-  onProgress: (event: ProgressEvent<EventTarget>) => void;
-};
-
-export function Camera3D(props: Props) {
+export function Camera3D() {
   return (
-    <Canvas>
+    <Canvas aria-hidden="true">
       <Physics gravity={[0, -9.81, 0]}>
-        <Band {...props} />
+        <Band />
       </Physics>
 
       <Environment background blur={0.75}>
@@ -61,25 +58,18 @@ export function Camera3D(props: Props) {
   );
 }
 
-function Band(props: Props) {
-  const cameraMesh = useLoader(
-    GLTFLoader,
-    "/sonya7sii.glb",
-    undefined,
-    props.onProgress
-  );
+function Band() {
+  const cameraMesh = useLoader(GLTFLoader, "/sonya7sii.glb");
 
   // References for the band and the joints
   const band = useRef<any>(null);
-  const fixed = useRef<any>(null);
-  const j1 = useRef<any>(null);
-  const j2 = useRef<any>(null);
-  const j3 = useRef<any>(null);
+  const fixed = useRef<RapierRigidBody>(null!);
+  const j1 = useRef<RapierRigidBody>(null!);
+  const j2 = useRef<RapierRigidBody>(null!);
+  const j3 = useRef<RapierRigidBody>(null!);
 
-  const camera = useRef<any>(null);
+  const camera = useRef<RapierRigidBody>(null!);
   const vec = new THREE.Vector3();
-  const ang = new THREE.Vector3();
-  const rot = new THREE.Vector3();
   const dir = new THREE.Vector3();
   const [dragged, drag] = useState<THREE.Vector3 | undefined>(undefined);
 
@@ -176,7 +166,7 @@ function Band(props: Props) {
       >
         <mesh
           scale={[0.02, 0.02, 0.02]}
-          onPointerUp={(e) => drag(undefined)}
+          onPointerUp={() => drag(undefined)}
           onPointerDown={(e) =>
             drag(
               new THREE.Vector3()

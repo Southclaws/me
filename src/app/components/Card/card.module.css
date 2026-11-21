@@ -9,15 +9,18 @@
 }
 
 .image {
-  transition: all 0.5s;
+  position: relative;
+  width: 100%;
 }
 
-.content {
-  transition: all 0.5s;
+@media (prefers-reduced-motion: no-preference) {
+  .image,
+  .content {
+    transition: transform 0.5s;
+  }
 }
 
 .grid:hover > .image {
-  transform: rotate(0deg);
   transform: scale(105%);
 }
 

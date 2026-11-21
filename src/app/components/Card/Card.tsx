@@ -1,5 +1,6 @@
-import { cx } from "@/styled-system/css";
+import { css, cx } from "@/styled-system/css";
 import { Box, HStack, VStack, styled } from "@/styled-system/jsx";
+import Image from "next/image";
 import Link from "next/link";
 import { PropsWithChildren } from "react";
 import styles from "./card.module.css";
@@ -15,7 +16,15 @@ type Props = {
 
   layout: "left" | "right";
   objectPosition?: "center" | "top" | "bottom" | "left" | "right";
+
+  // The first card's image can be the LCP element on small screens.
+  eager?: boolean;
 };
+
+const cover = css({
+  objectFit: "cover",
+  borderRadius: "3xl",
+});
 
 const Badge = styled("span", {
   base: {
@@ -38,18 +47,23 @@ export function Card({
   noun,
   layout,
   objectPosition = "center",
+  eager,
   children,
 }: PropsWithChildren<Props>) {
   return (
     <div data-layout={layout} className={styles["grid"]}>
       <div className={cx(styles["image-" + layout], styles["image"])}>
-        <styled.img
+        {/* Decorative: the card's heading and copy describe the project. */}
+        <Image
+          className={cover}
+          style={{ objectPosition }}
           src={image}
-          objectFit="cover"
-          objectPosition={objectPosition}
-          w="full"
-          h="full"
-          borderRadius="3xl"
+          alt=""
+          fill
+          sizes="(min-width: 768px) 460px, 60vw"
+          {...(eager
+            ? { loading: "eager" as const, fetchPriority: "high" as const }
+            : {})}
         />
       </div>
 
