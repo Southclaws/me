@@ -53,9 +53,10 @@ const Experience = () => (
           security tooling the product runs on in the field.
         </li>
         <li>
-          Split between leading the team and working as a forward deployed
-          engineer, getting hands-on with customers&apos; environments and
-          feeding what I learn straight back into the platform.
+          Split between leading the team and working directly with
+          customers as a forward deployed engineer &mdash; on site,
+          understanding their operations first-hand and shaping the product
+          around what they actually need.
         </li>
       </ul>
     </ExperienceItem>
