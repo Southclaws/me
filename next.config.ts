@@ -8,14 +8,6 @@ const nextConfig: NextConfig = {
   },
   images: {
     formats: ["image/avif", "image/webp"],
-    // Project artwork shown on the cards is hotlinked from these hosts.
-    remotePatterns: [
-      { protocol: "https", hostname: "www.storyden.org" },
-      { protocol: "https", hostname: "assets-global.website-files.com" },
-      { protocol: "https", hostname: "scavengesurvive.com" },
-      { protocol: "https", hostname: "mir-s3-cdn-cf.behance.net" },
-      { protocol: "https", hostname: "framerusercontent.com" },
-    ],
   },
 };
 

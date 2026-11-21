@@ -43,11 +43,7 @@ export default async function Home() {
         <BioParagraph>
           I love helping advise early stage companies in their product and
           technical strategy, my <Link href="/cv">curriculum vitae</Link> is
-          available or you can{" "}
-          <a href="https://cal.com/southclaws" target="_blank">
-            book a call
-          </a>{" "}
-          and we can have a chat!
+          available if you want to know more.
         </BioParagraph>
 
         <hr />
@@ -57,7 +53,7 @@ export default async function Home() {
         <VStack py="16" gap="4">
           <Card
             title="Storyden"
-            image="https://www.storyden.org/opengraph-1280-640.png"
+            image="/building/storyden.png"
             url="https://www.storyden.org/"
             verb="building"
             noun="storyden"
@@ -84,7 +80,7 @@ export default async function Home() {
 
           <Card
             title="Ferry"
-            image="https://framerusercontent.com/images/zXKzc9rl8D9vNNOkyWGK9LG66ks.png"
+            image="/building/ferry.png"
             url="https://www.deployferry.io/"
             verb="building"
             layout="right"
