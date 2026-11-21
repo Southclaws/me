@@ -1,0 +1,74 @@
+/* One job, said plainly and at size. */
+.page {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto auto auto;
+  gap: clamp(20px, 3vw, 40px);
+  align-content: start;
+  padding: clamp(16px, 4vw, 64px);
+  background: var(--colors-bg);
+  color: var(--colors-fg);
+}
+
+.home {
+  font-family: var(--font-orbiter);
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  justify-self: start;
+}
+
+.lead {
+  display: grid;
+  gap: 14px;
+  align-content: center;
+}
+
+.headline {
+  margin: 0;
+  font-family: var(--font-orbiter);
+  font-weight: 800;
+  font-size: clamp(2.6rem, 10vw, 7.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.since {
+  margin: 0;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--colors-link);
+}
+
+.note {
+  margin: 0;
+  max-width: 46ch;
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  line-height: 1.5;
+  color: var(--colors-fg-muted);
+  text-wrap: pretty;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  font-family: var(--font-orbiter);
+  font-weight: 700;
+}
+
+.also {
+  display: grid;
+  gap: 6px;
+  justify-items: start;
+  border-top: 1px solid var(--colors-fg-muted);
+  padding-top: 14px;
+}
+
+.alsoLink {
+  color: var(--colors-fg-muted);
+  font-size: 0.95rem;
+}

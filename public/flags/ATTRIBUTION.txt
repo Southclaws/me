@@ -1,0 +1,5 @@
+Flag SVGs from lipis/flag-icons (https://github.com/lipis/flag-icons),
+released under the MIT licence. Copyright (c) 2013 Panayiotis Lipiridis.
+
+These are placeholders for the country pages until there are real photos.
+Delete a file here once its country has one.

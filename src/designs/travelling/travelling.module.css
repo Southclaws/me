@@ -1,0 +1,50 @@
+.page {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: clamp(24px, 4vw, 48px);
+  align-content: start;
+  padding: clamp(16px, 4vw, 64px);
+  background: var(--colors-bg);
+  color: var(--colors-fg);
+}
+
+.home {
+  font-family: var(--font-orbiter);
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  justify-self: start;
+}
+
+.intro {
+  display: grid;
+  gap: 12px;
+  max-width: 54ch;
+}
+
+.headline {
+  margin: 0;
+  font-family: var(--font-orbiter);
+  font-weight: 800;
+  font-size: clamp(2.4rem, 8vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.blurb {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--colors-fg-muted);
+  text-wrap: pretty;
+}
+
+.cards {
+  display: grid;
+  gap: clamp(16px, 3vw, 32px);
+  max-width: var(--sizes-breakpoint-md, 48rem);
+  width: 100%;
+  margin-inline: auto;
+  align-content: start;
+}

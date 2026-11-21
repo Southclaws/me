@@ -1,0 +1,149 @@
+/* Storyden, present tense. Two halves, three values, one disclaimer. */
+.page {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto auto auto auto 1fr auto auto;
+  gap: clamp(28px, 4vw, 56px);
+  align-content: start;
+  padding: clamp(16px, 4vw, 64px);
+  background: var(--colors-bg);
+  color: var(--colors-fg);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-family: var(--font-orbiter);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.nav a {
+  text-decoration: none;
+}
+
+.hero {
+  display: grid;
+  gap: 14px;
+  max-width: 54ch;
+}
+
+.claim {
+  margin: 0;
+  color: var(--colors-fg-muted);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-orbiter);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 7vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.intro {
+  margin: 0;
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  line-height: 1.5;
+  color: var(--colors-fg-muted);
+  text-wrap: pretty;
+}
+
+.halves {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: clamp(20px, 3vw, 40px);
+}
+
+.half {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  border-top: 2px solid var(--colors-link);
+  padding-top: 14px;
+}
+
+.halfName {
+  margin: 0;
+  font-family: var(--font-orbiter);
+  font-weight: 700;
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  line-height: 1.05;
+}
+
+.halfBody {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--colors-fg-muted);
+  text-wrap: pretty;
+}
+
+.aside {
+  margin: 0;
+  max-width: 48ch;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  line-height: 1.5;
+  text-wrap: pretty;
+  border-left: 3px solid var(--colors-link);
+  padding-left: 16px;
+}
+
+.values {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: clamp(18px, 2.5vw, 32px);
+  align-content: start;
+}
+
+.value {
+  display: grid;
+  gap: 6px;
+  align-content: start;
+}
+
+.valueName {
+  margin: 0;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--colors-link);
+}
+
+.valueBody {
+  margin: 0;
+  line-height: 1.55;
+  color: var(--colors-fg-muted);
+  text-wrap: pretty;
+}
+
+.not {
+  display: grid;
+  gap: 8px;
+  max-width: 54ch;
+}
+
+.notTitle {
+  margin: 0;
+  font-family: var(--font-orbiter);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 2.6vw, 1.7rem);
+  line-height: 1.1;
+}
+
+.notBody {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--colors-fg-muted);
+  text-wrap: pretty;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  font-family: var(--font-orbiter);
+  font-weight: 700;
+}

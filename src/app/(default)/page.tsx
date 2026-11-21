@@ -1,6 +1,11 @@
+import { dailyTravelling } from "@/designs/travelling/daily";
 import { VStack, styled } from "@/styled-system/jsx";
 import Link from "next/link";
+import type { PropsWithChildren } from "react";
 import { Card } from "../components/Card/Card";
+
+// The travelling picks change with the day, so the page is rebuilt daily.
+export const revalidate = 86400;
 
 const BioParagraph = styled("p", {
   base: {
@@ -12,6 +17,8 @@ const BioParagraph = styled("p", {
 });
 
 export default async function Home() {
+  const travelling = dailyTravelling(5);
+
   return (
     <styled.main
       display="flex"
@@ -26,7 +33,10 @@ export default async function Home() {
         <styled.hgroup mb={{ base: "8", md: "4" }}>
           <styled.h1 lineHeight="headingFluid.lg">barney</styled.h1>
           <styled.p ml="0.5" color="fg.muted">
-            barnaby keene • @southclaws
+            barnaby keene •{" "}
+            <a target="_blank" href="https://x.com/southclaws">
+              @southclaws
+            </a>
           </styled.p>
         </styled.hgroup>
 
@@ -35,22 +45,30 @@ export default async function Home() {
         </BioParagraph>
 
         <BioParagraph>
-          with experience across a wide variety of creative tools and technical
-          skills, I build and lead world-class teams for solving complex
-          problems.
-        </BioParagraph>
-
-        <BioParagraph>
-          I love helping advise early stage companies in their product and
-          technical strategy, my <Link href="/cv">curriculum vitae</Link> is
-          available if you want to know more.
+          with <Link href="/experienced">experience</Link> across a wide variety
+          of creative tools and technical skills, I build and lead world-class
+          teams for solving complex problems in a broad gamut of domains.
         </BioParagraph>
 
         <hr />
 
-        <h2>what barney.is doing...</h2>
+        <Section path="working">
+          <Card
+            title="Ferry"
+            image="/building/ferry.png"
+            url="https://www.deployferry.io/"
+            verb="working-at"
+            noun="ferry"
+            layout="left"
+            objectPosition="right"
+            eager
+          >
+            <p>Ferry is the applied AI laboratory for industrial operations.</p>
+            <p>I lead the engineering side of the business.</p>
+          </Card>
+        </Section>
 
-        <VStack py="16" gap="4">
+        <Section path="building">
           <Card
             title="Storyden"
             image="/building/storyden.png"
@@ -79,20 +97,52 @@ export default async function Home() {
           </Card>
 
           <Card
-            title="Ferry"
-            image="/building/ferry.png"
-            url="https://www.deployferry.io/"
+            title="Rad"
+            image="/building/rad.png"
+            url="https://radengine.dev"
             verb="building"
+            noun="rad"
             layout="right"
-            objectPosition="right"
-            eager
           >
-            <p>Ferry is the applied AI laboratory for industrial operations.</p>
-            <p>It&apos;s where I currently work.</p>
+            <p>Relational, without the SQL.</p>
+            <p>
+              A database built for how applications actually use data, backed by
+              object storage.
+            </p>
           </Card>
 
           <Card
-            title="Snapping"
+            title="Tools"
+            image="/building/tools.png"
+            verb="building"
+            noun="tools"
+            layout="left"
+          >
+            <p>
+              Small things I built mostly because I wanted them to exist and
+              nobody else had made one.
+            </p>
+            <p>None of them are a product.</p>
+          </Card>
+        </Section>
+
+        <Section path="travelling">
+          {travelling.map((t, i) => (
+            <Card
+              key={t.path}
+              title={t.name}
+              image={t.image}
+              flag={t.flag}
+              verb="back-from"
+              noun={t.slug}
+              layout={i % 2 === 0 ? "left" : "right"}
+            />
+          ))}
+        </Section>
+
+        <Section path="capturing">
+          <Card
+            title="Capturing"
             image="/photography/2019-09-21 spherical.jpg"
             verb="capturing"
             layout="left"
@@ -105,16 +155,33 @@ export default async function Home() {
               typography!
             </p>
           </Card>
-        </VStack>
+        </Section>
       </header>
 
       <footer>
-        <styled.p fontSize="xs" textWrap="pretty">
+        <styled.p fontSize="xs" textWrap="balance">
           designed while sat in the barbican on saturday the twenty third of
           september two thousand twenty three. email me at hey.com, my username
           is barney.
         </styled.p>
       </footer>
     </styled.main>
+  );
+}
+
+/** The "barney.is /something" motif the generated pages use, as a section
+    heading that is also the way in to that part of the site. */
+function Section({ path, children }: PropsWithChildren<{ path: string }>) {
+  return (
+    <styled.section>
+      <styled.h2 lineHeight="none">
+        <styled.span color="fg.muted">barney.is</styled.span>
+        <Link href={`/${path}`}>/{path}</Link>
+      </styled.h2>
+
+      <VStack py="16" gap="4">
+        {children}
+      </VStack>
+    </styled.section>
   );
 }

@@ -53,3 +53,22 @@
   grid-column: 1 / 4;
   transform: rotate(-1deg);
 }
+
+/* Cards without a photo: a flat colour block in the same slot. */
+.placeholder {
+  position: absolute;
+  inset: 0;
+}
+
+/* A real flag, sitting on the seeded colour block. */
+.flag {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 58%;
+  aspect-ratio: 4 / 3;
+  translate: -50% -50%;
+  rotate: var(--tilt, 0deg);
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.35);
+}

@@ -1,0 +1,69 @@
+/* A plain index for the small stuff: a column of names, nothing clever. */
+.page {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto auto auto 1fr;
+  gap: clamp(20px, 3vw, 36px);
+  align-content: start;
+  padding: clamp(16px, 4vw, 64px);
+  background: var(--colors-bg);
+  color: var(--colors-fg);
+}
+
+.home {
+  font-family: var(--font-orbiter);
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  justify-self: start;
+}
+
+.headline {
+  margin: 0;
+  font-family: var(--font-orbiter);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 7vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.note {
+  margin: 0;
+  max-width: 52ch;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--colors-fg-muted);
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: clamp(16px, 2vw, 28px);
+  align-content: start;
+  max-width: 60ch;
+}
+
+.item {
+  display: grid;
+  gap: 4px;
+  border-top: 1px solid var(--colors-fg-muted);
+  padding-top: clamp(10px, 1.5vw, 16px);
+}
+
+.name {
+  font-family: var(--font-orbiter);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  text-decoration-color: var(--colors-link);
+  text-underline-offset: 0.2em;
+  justify-self: start;
+}
+
+.blurb {
+  margin: 0;
+  color: var(--colors-fg-muted);
+  line-height: 1.5;
+  text-wrap: pretty;
+}

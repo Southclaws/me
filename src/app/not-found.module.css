@@ -1,0 +1,43 @@
+.page {
+  min-height: 100dvh;
+  padding: clamp(16px, 4vw, 64px);
+  background: var(--colors-bg);
+  color: var(--colors-fg);
+  display: grid;
+  align-content: space-between;
+  gap: 48px;
+}
+
+.page a {
+  color: var(--colors-link);
+}
+
+.home {
+  font-family: var(--font-orbiter);
+  font-weight: 700;
+  text-decoration: none;
+  color: inherit !important;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-orbiter);
+  font-weight: 800;
+  font-size: clamp(2.6rem, 9vw, 8rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  overflow-wrap: anywhere;
+}
+
+.sub {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--colors-fg-muted);
+}
+
+.suggest {
+  margin: 0;
+  max-width: 48ch;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}

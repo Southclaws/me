@@ -1,0 +1,211 @@
+/* One stylesheet, four compositions, palette and face from CSS variables set
+   per node (see seed.ts). Every value that changes per page is a variable. */
+
+.page {
+  min-height: 100dvh;
+  background: var(--g-bg);
+  color: var(--g-fg);
+  padding: clamp(16px, 4vw, 64px);
+  display: grid;
+  /* The headline row takes whatever is left over, so a page with nothing but
+     a leader, a hero and a footer is exactly one screen with no scrollbar,
+     and a page with more content simply grows. */
+  grid-template-rows: auto 1fr;
+  gap: clamp(24px, 4vw, 48px);
+  align-content: start;
+  overflow-x: clip;
+}
+
+.page a {
+  color: inherit;
+  text-decoration-color: var(--g-accent);
+  text-underline-offset: 0.2em;
+}
+
+.page a:hover {
+  color: var(--g-accent);
+}
+
+.home {
+  font-family: var(--font-orbiter);
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  justify-self: start;
+}
+
+.headline {
+  font-family: var(--g-face);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.headline s {
+  color: var(--g-muted);
+  text-decoration-color: var(--g-accent);
+  text-decoration-thickness: 0.08em;
+}
+
+.correction {
+  max-width: 40ch;
+  color: var(--g-muted);
+  font-size: 1.1rem;
+}
+
+.correction s {
+  text-decoration-color: var(--g-accent);
+}
+
+.aside {
+  display: grid;
+  gap: 24px;
+  align-content: start;
+}
+
+/* A short paragraph in barney's own voice, where there is one to say. */
+.note {
+  max-width: 52ch;
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--g-fg);
+  opacity: 0.85;
+}
+
+/* Quiet links to related pages. Deliberately not a list, not labelled, and
+   never more than a couple: the site is meant to be wandered, not indexed. */
+.strays {
+  display: grid;
+  gap: 6px;
+  align-content: start;
+  justify-items: start;
+}
+
+.stray {
+  justify-self: start;
+  font-size: 0.95rem;
+  color: var(--g-muted);
+  text-decoration-color: color-mix(in srgb, var(--g-muted) 40%, transparent);
+  text-underline-offset: 0.25em;
+}
+
+.stray:hover {
+  color: var(--g-accent);
+  text-decoration-color: currentColor;
+}
+
+.external {
+  font-family: var(--font-orbiter);
+  font-weight: 700;
+}
+
+/* ── billboard: the sentence fills the screen ─────────────────────────── */
+
+.page[data-composition="billboard"] .headline {
+  font-size: clamp(3rem, 11vw, 11rem);
+  display: flex;
+  align-items: flex-end;
+}
+
+.page[data-composition="billboard"] .aside {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  border-top: 2px solid var(--g-accent);
+  padding-top: 24px;
+}
+
+/* ── corner: a quiet lead, the object breaking out of the bottom right ── */
+
+.page[data-composition="corner"] {
+  grid-template-rows: auto 1fr auto auto;
+}
+
+.page[data-composition="corner"] .headline {
+  display: grid;
+  min-height: 0;
+  align-content: space-between;
+}
+
+.lead {
+  font-size: clamp(1.4rem, 3vw, 2.4rem);
+  font-weight: 500;
+  color: var(--g-muted);
+  max-width: 20ch;
+}
+
+.object {
+  justify-self: end;
+  text-align: right;
+  font-size: clamp(3.5rem, 16vw, 16rem);
+  color: var(--g-accent);
+  transform: rotate(var(--g-tilt));
+  transform-origin: bottom right;
+}
+
+.page[data-composition="corner"] .aside {
+  max-width: 48ch;
+}
+
+/* ── column: a narrow, bookish column ─────────────────────────────────── */
+
+.page[data-composition="column"] {
+  /* Full-bleed background with the text held to a column. Done with padding
+     rather than a box-shadow bleed, which fought the page's overflow clipping
+     and left the colour as a band down the middle of the screen. */
+  padding-inline: max(clamp(16px, 4vw, 64px), calc((100% - 34rem) / 2));
+  padding-block: clamp(48px, 12vh, 160px);
+}
+
+.page[data-composition="column"] .headline {
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+.page[data-composition="column"] .headline::first-letter {
+  color: var(--g-accent);
+}
+
+.page[data-composition="column"] .aside {
+  border-left: 3px solid var(--g-ramp-3);
+  padding-left: 16px;
+}
+
+/* ── tiles: one word per tile ─────────────────────────────────────────── */
+
+.page[data-composition="tiles"] .headline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: clamp(2.2rem, 8vw, 7rem);
+}
+
+.tile {
+  padding: 0.1em 0.25em 0.15em;
+  border-radius: 0.15em;
+}
+
+.tile:nth-child(3n + 2) {
+  transform: rotate(var(--g-tilt));
+}
+
+.tile:last-child {
+  color: var(--g-accent);
+}
+
+.page[data-composition="tiles"] .aside {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .tile,
+  .object {
+    transition: transform 0.4s;
+  }
+  .headline:hover .tile,
+  .headline:hover .object {
+    transform: none;
+  }
+}

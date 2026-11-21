@@ -1,0 +1,118 @@
+/* Rad: a database page, set like a spec sheet. Mono for the machine-facing
+   bits, a wide measure for the prose. */
+.page {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto auto;
+  gap: clamp(28px, 4vw, 56px);
+  align-content: start;
+  padding: clamp(16px, 4vw, 64px);
+  background: var(--colors-bg);
+  color: var(--colors-fg);
+}
+
+.home {
+  font-family: var(--font-orbiter);
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  justify-self: start;
+}
+
+.intro {
+  display: grid;
+  gap: 14px;
+  max-width: 58ch;
+}
+
+.headline {
+  margin: 0;
+  font-family: var(--font-orbiter);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 7vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.tagline {
+  margin: 0;
+  font-family: var(--font-orbiter);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+  color: var(--colors-link);
+}
+
+.blurb {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--colors-fg-muted);
+  text-wrap: pretty;
+}
+
+.choices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: clamp(20px, 3vw, 36px);
+  align-content: start;
+}
+
+.choice {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  border-top: 2px solid var(--colors-link);
+  padding-top: 14px;
+}
+
+.instead {
+  margin: 0;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--colors-fg-muted);
+}
+
+.choiceTitle {
+  margin: 0;
+  font-family: var(--font-orbiter);
+  font-weight: 700;
+  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+  line-height: 1.1;
+}
+
+.choiceBody {
+  margin: 0;
+  line-height: 1.55;
+  color: var(--colors-fg-muted);
+  text-wrap: pretty;
+}
+
+.scope {
+  display: grid;
+  gap: 8px;
+  max-width: 58ch;
+}
+
+.scopeTitle {
+  margin: 0;
+  font-family: var(--font-orbiter);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 2.6vw, 1.8rem);
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.scopeBody {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--colors-fg-muted);
+  text-wrap: pretty;
+}
+
+.external {
+  font-family: var(--font-orbiter);
+  font-weight: 700;
+  justify-self: start;
+}

@@ -6,6 +6,10 @@ const nextConfig: NextConfig = {
     // request from the critical path.
     inlineCss: true,
   },
+  // The CV moved to a sentence: "barney is experienced".
+  async redirects() {
+    return [{ source: "/cv", destination: "/experienced", permanent: true }];
+  },
   images: {
     formats: ["image/avif", "image/webp"],
   },
