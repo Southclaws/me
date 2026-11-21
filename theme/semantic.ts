@@ -43,9 +43,11 @@ export const semanticTokens = defineSemanticTokens({
         },
       },
       muted: {
+        // Same neutral grey as before, darkened just enough to clear WCAG AA
+        // (4.5:1) against both bg and bg.opaque in light and dark schemes.
         value: {
-          base: "{colors.offwhite.50}",
-          _osDark: "{colors.offwhite.50}",
+          base: "hsl(40.432 0% 43%)",
+          _osDark: "{colors.offwhite.200}",
         },
       },
     },
@@ -70,15 +72,17 @@ export const semanticTokens = defineSemanticTokens({
       },
     },
     link: {
+      // Light scheme: accent.500's hue and saturation at a lower lightness so
+      // links reach 4.5:1 on the off-white backgrounds (accent.500 was 2.6:1).
       DEFAULT: {
         value: {
-          base: "{colors.accent.500}",
+          base: "hsl(26.16 60% 39%)",
           _osDark: "{colors.accent.600}",
         },
       },
       hover: {
         value: {
-          base: "{colors.accent.600}",
+          base: "hsl(26.16 60% 30%)",
           _osDark: "{colors.accent.500}",
         },
       },

@@ -1,5 +1,3 @@
-"use client";
-
 import { css } from "@/styled-system/css";
 import { HStack } from "@/styled-system/jsx";
 import { JsxStyleProps } from "@/styled-system/types";
@@ -10,7 +8,10 @@ type Props = {
   images: Photograph[];
 };
 
-export function Bricklay({ images, ...props }: Props & JsxStyleProps) {
+// Thumbnails are rendered at a fixed height (size 48 = 12rem = 192px).
+const height = 192;
+
+export function Bricklay({ images }: Props & JsxStyleProps) {
   return (
     <HStack
       height="lvh"
@@ -25,6 +26,7 @@ export function Bricklay({ images, ...props }: Props & JsxStyleProps) {
           src={i.path}
           width={i.width}
           height={i.height}
+          sizes={`${Math.ceil((height * i.width) / i.height)}px`}
           alt=""
         />
       ))}

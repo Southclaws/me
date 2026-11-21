@@ -3,7 +3,6 @@ import { ContentPageProps } from "@/content/content";
 import { token } from "@/styled-system/tokens";
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
 export const alt = "Barney";
 export const size = {
   width: 1600,
@@ -12,11 +11,13 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image(props: ContentPageProps) {
+  const params = await props.params;
+
   return new ImageResponse(
     (
       <div
         style={{
-          background: token("colors.offblack"),
+          background: token("colors.offblack.600"),
           width: "100%",
           height: "100%",
           display: "flex",
@@ -24,7 +25,7 @@ export default async function Image(props: ContentPageProps) {
           padding: "80px",
           alignItems: "flex-start",
           justifyContent: "space-between",
-          color: token("colors.offwhite"),
+          color: token("colors.offwhite.800"),
           fontFamily: "TASA Orbiter",
         }}
       >
@@ -36,7 +37,7 @@ export default async function Image(props: ContentPageProps) {
         >
           <h1 style={{ fontSize: "120", fontWeight: 800 }}>barney</h1>
           <p style={{ fontSize: "80", fontWeight: 400 }}>
-            what am i {props.params.verb}?
+            what am i {params.verb}?
           </p>
         </div>
 

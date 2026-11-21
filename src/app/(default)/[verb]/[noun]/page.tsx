@@ -1,10 +1,21 @@
-import { ContentPageProps, getContent } from "@/content/content";
+import {
+  ContentPageProps,
+  getContent,
+  listContent,
+} from "@/content/content";
 import { Metadata } from "next";
+
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  const pages = await listContent();
+  return pages.filter((p) => p.noun !== "index");
+}
 
 export async function generateMetadata(
   props: ContentPageProps
 ): Promise<Metadata> {
-  const { metadata } = await getContent(props.params);
+  const { metadata } = await getContent(await props.params);
   return {
     title: metadata.title,
     description: metadata.description,
@@ -12,7 +23,7 @@ export async function generateMetadata(
 }
 
 export default async function Page(props: ContentPageProps) {
-  const { content } = await getContent(props.params);
+  const { content } = await getContent(await props.params);
 
   return <>{content}</>;
 }

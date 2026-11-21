@@ -3,7 +3,7 @@
 import { css } from "@/styled-system/css";
 import { Grid, Square } from "@/styled-system/jsx";
 import Image from "next/image";
-import { MouseEvent, useState } from "react";
+import { useState } from "react";
 
 type Props = {
   photos: {
@@ -32,6 +32,10 @@ const square = css({
   },
   boxShadow: "2xl",
   objectFit: "cover",
+  _motionSafe: {
+    transitionProperty: "transform",
+    transitionDuration: "normal",
+  },
 });
 
 export function PhotoStack({ photos }: Props) {
@@ -74,8 +78,10 @@ export function PhotoStack({ photos }: Props) {
             className={square}
             onClick={cycle}
           >
+            {/* Only the top photo is visible until the stack is clicked. */}
             <Image
-              fetchPriority={i === 0 ? "auto" : "low"}
+              {...(i === 0 ? {} : { fetchPriority: "low" as const })}
+              sizes="(min-width: 640px) 512px, 384px"
               className={square}
               src={p.src}
               width={p.width}
